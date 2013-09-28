@@ -26,7 +26,7 @@
 			project by providing all needed files and some examples. You can 
 			install this sample through composer:</p>
 
-			<pre>php composer.phar create-project psx/sample . dev-master</pre>
+			<pre>php composer.phar create-project psx/sample .</pre>
 
 			<p>More informations about PSX at</p>
 			<dl>
