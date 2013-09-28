@@ -1,0 +1,21 @@
+
+body
+{
+	background-color:#eee;
+}
+
+header
+{
+	margin-top:16px;
+}
+
+footer
+{
+	text-align:right;
+}
+
+.container
+{
+	margin-top:8px;
+	background-color:#fff;
+}
