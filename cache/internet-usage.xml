@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usage>
+	<entry>
+		<id>1</id>
+		<place>1</place>
+		<region>China</region>
+		<population>1338612968</population>
+		<users>360000000</users>
+		<world_users>20.8</world_users>
+		<datetime>2009-11-29 15:21:49</datetime>
+	</entry>
+	<entry>
+		<id>2</id>
+		<place>2</place>
+		<region>United States</region>
+		<population>307212123</population>
+		<users>227719000</users>
+		<world_users>13.1</world_users>
+		<datetime>2009-11-29 15:22:40</datetime>
+	</entry>
+	<entry>
+		<id>3</id>
+		<place>3</place>
+		<region>Japan</region>
+		<population>127078679</population>
+		<users>95979000</users>
+		<world_users>5.5</world_users>
+		<datetime>2009-11-29 15:23:18</datetime>
+	</entry>
+	<entry>
+		<id>4</id>
+		<place>4</place>
+		<region>India</region>
+		<population>1156897766</population>
+		<users>81000000</users>
+		<world_users>4.7</world_users>
+		<datetime>2009-11-29 15:24:47</datetime>
+	</entry>
+	<entry>
+		<id>5</id>
+		<place>5</place>
+		<region>Brazil</region>
+		<population>198739269</population>
+		<users>67510400</users>
+		<world_users>3.9</world_users>
+		<datetime>2009-11-29 15:25:20</datetime>
+	</entry>
+	<entry>
+		<id>6</id>
+		<place>6</place>
+		<region>Germany</region>
+		<population>82329758</population>
+		<users>54229325</users>
+		<world_users>3.1</world_users>
+		<datetime>2009-11-29 15:25:58</datetime>
+	</entry>
+	<entry>
+		<id>7</id>
+		<place>7</place>
+		<region>United Kingdom</region>
+		<population>61113205</population>
+		<users>46683900</users>
+		<world_users>2.7</world_users>
+		<datetime>2009-11-29 15:26:27</datetime>
+	</entry>
+	<entry>
+		<id>8</id>
+		<place>8</place>
+		<region>Russia</region>
+		<population>140041247</population>
+		<users>45250000</users>
+		<world_users>2.6</world_users>
+		<datetime>2009-11-29 15:27:07</datetime>
+	</entry>
+	<entry>
+		<id>9</id>
+		<place>9</place>
+		<region>France</region>
+		<population>62150775</population>
+		<users>43100134</users>
+		<world_users>2.5</world_users>
+		<datetime>2009-11-29 15:27:37</datetime>
+	</entry>
+	<entry>
+		<id>10</id>
+		<place>10</place>
+		<region>Korea South</region>
+		<population>48508972</population>
+		<users>37475800</users>
+		<world_users>2.2</world_users>
+		<datetime>2009-11-29 15:28:06</datetime>
+	</entry>
+</usage>

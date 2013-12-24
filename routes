@@ -1,5 +1,5 @@
 
 # example PSX routing file
 
-GET      /     Sample\Demo\Application\Index
-GET|POST /news Sample\News\Api\Index
+GET /     Sample\Demo\Application\Index
+GET /api  Sample\Demo\Application\Api

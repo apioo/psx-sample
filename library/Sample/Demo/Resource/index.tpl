@@ -28,7 +28,31 @@
 
 			<pre>php composer.phar create-project psx/sample .</pre>
 
-			<p>More informations about PSX at</p>
+			<p>This sample application has an <a href="<?php echo $url . 'api'; ?>">API</a>
+			endpoint wich showcases some features of PSX howto easily build an 
+			REST API. The API supports the following query GET parameters:</p>
+			<dl>
+				<dt>format</dt>
+				<dd><code>xml</code>|<code>json</code>|<code>jsonp</code>|<code>atom</code></dd>
+				<dt>fields</dt>
+				<dd>A comma seperated list of fields wich should be selected</dd>
+				<dt>startIndex</dt>
+				<dd>Where to start in the resultset</dd>
+				<dt>count</dt>
+				<dd>The maximum number of entries</dd>
+				<dt>sortBy</dt>
+				<dd>The field after wich the resultset is sorted</dd>
+				<dt>sortOrder</dt>
+				<dd><code>ascending</code>|<code>descending</code></dd>
+				<dt>filterBy</dt>
+				<dd>The filter is applied on the given column</dd>
+				<dt>filterOp</dt>
+				<dd><code>contains</code>|<code>equals</code>|<code>startsWith</code>|<code>present</code></dd>
+				<dt>filterValue</dt>
+				<dd>The filter value</dd>
+			</dl>
+
+			<p>More informations about PSX at:</p>
 			<dl>
 				<dt>Website</dt>
 				<dd><a href="http://phpsx.org">http://phpsx.org</a></dd>
