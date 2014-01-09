@@ -10,6 +10,7 @@ use PSX\Data\Message;
 use PSX\Data\Record\Mapper;
 use PSX\Data\Record\Mapper\Rule;
 use PSX\Data\RecordInterface;
+use PSX\Data\WriterInterface;
 use PSX\Module\ApiAbstract;
 use PSX\Util\Uuid;
 
@@ -34,7 +35,7 @@ class Api extends ApiAbstract
 					$params['sortOrder'], 
 					$this->getRequestCondition());
 
-			if($this->getInputGet()->format() == 'atom')
+			if($this->isWriter(WriterInterface::ATOM))
 			{
 				$this->setResponse($this->getAtomRecord($result));
 			}
@@ -45,7 +46,17 @@ class Api extends ApiAbstract
 		}
 		catch(\Exception $e)
 		{
-			$msg = new Message($e->getMessage(), false);
+			if($this->isWriter(WriterInterface::ATOM))
+			{
+				$msg = new Entry();
+				$msg->setId(Uuid::nameBased($e->getMessage()));
+				$msg->setTitle($e->getMessage());
+				$msg->setUpdated(new DateTime());
+			}
+			else
+			{
+				$msg = new Message($e->getMessage(), false);
+			}
 
 			$this->setResponse($msg);
 		}
