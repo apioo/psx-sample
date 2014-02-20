@@ -2,7 +2,7 @@
 
 namespace Sample\Demo\Application;
 
-use PSX\Module\ViewAbstract;
+use PSX\Controller\ViewAbstract;
 
 class Index extends ViewAbstract
 {

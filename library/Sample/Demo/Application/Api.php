@@ -11,7 +11,7 @@ use PSX\Data\Record\Mapper;
 use PSX\Data\Record\Mapper\Rule;
 use PSX\Data\RecordInterface;
 use PSX\Data\WriterInterface;
-use PSX\Module\ApiAbstract;
+use PSX\Controller\ApiAbstract;
 use PSX\Util\Uuid;
 
 class Api extends ApiAbstract
