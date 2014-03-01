@@ -1,6 +1,6 @@
 <?php
 
-namespace Sample\Demo\Application;
+namespace Sample\Welcome\Application;
 
 use PSX\Controller\ViewAbstract;
 

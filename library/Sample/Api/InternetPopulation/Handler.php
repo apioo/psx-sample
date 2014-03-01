@@ -1,6 +1,6 @@
 <?php
 
-namespace Sample\Demo\InternetPopulation;
+namespace Sample\Api\InternetPopulation;
 
 use DOMDocument;
 use PSX\Handler\DomHandlerAbstract;
