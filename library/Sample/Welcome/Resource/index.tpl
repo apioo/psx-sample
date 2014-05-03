@@ -28,7 +28,7 @@
 
 			<pre>php composer.phar create-project psx/sample .</pre>
 
-			<p>This sample application has an <a href="<?php echo $url . 'api'; ?>">API</a>
+			<p>This sample application has an <a href="<?php echo $router->getUrl('Sample\Api\Application\Api'); ?>">API</a>
 			endpoint wich showcases some features of PSX howto easily build an 
 			REST API. The API supports the following query GET parameters:</p>
 			<dl>
