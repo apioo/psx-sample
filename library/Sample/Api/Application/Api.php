@@ -6,6 +6,7 @@ use PSX\Atom;
 use PSX\Atom\Entry;
 use PSX\Atom\Text;
 use PSX\Controller\HandlerApiAbstract;
+use PSX\Data\WriterInterface;
 use PSX\Data\Record\Mapper;
 use PSX\Data\Record\Mapper\Rule;
 use PSX\Data\RecordInterface;
@@ -15,7 +16,7 @@ class Api extends HandlerApiAbstract
 {
 	protected function getDefaultHandler()
 	{
-		return $this->getDefaultManager()
+		return $this->getDomManager()
 			->getHandler('Sample\Api\InternetPopulation\Handler');
 	}
 
@@ -53,4 +54,8 @@ class Api extends HandlerApiAbstract
 		return $atom;
 	}
 
+	protected function getSupportedWriter()
+	{
+		return array(WriterInterface::JSON, WriterInterface::JSONP, WriterInterface::XML, WriterInterface::ATOM);
+	}
 }
