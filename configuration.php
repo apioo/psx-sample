@@ -5,7 +5,7 @@
  * dynamic web applications. For the current version and informations
  * visit <http://phpsx.org>
  *
- * Copyright (c) 2010-2013 Christoph Kappestein <k42b3.x@gmail.com>
+ * Copyright (c) 2010-2014 Christoph Kappestein <k42b3.x@gmail.com>
  *
  * This file is part of psx. psx is free software: you can
  * redistribute it and/or modify it under the terms of the
@@ -26,7 +26,6 @@ $config = array(
 	'psx_url'                 => 'http://127.0.0.1/projects/psx-sample/public',
 	'psx_dispatch'            => 'index.php/',
 	'psx_timezone'            => 'UTC',
-	'psx_gzip'                => false,
 	'psx_debug'               => true,
 
 	'psx_sql_host'            => 'localhost',
