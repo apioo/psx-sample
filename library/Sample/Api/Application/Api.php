@@ -14,9 +14,15 @@ use PSX\Util\Uuid;
 
 class Api extends HandlerApiAbstract
 {
-	protected function getDefaultHandler()
+	/**
+	 * @Inject
+	 * @var PSX\Handler\Dom\Manager
+	 */
+	protected $domManager;
+
+	protected function getHandler()
 	{
-		return $this->getDomManager()
+		return $this->domManager
 			->getHandler('Sample\Api\InternetPopulation\Handler');
 	}
 

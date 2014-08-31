@@ -6,9 +6,17 @@ use PSX\Controller\ViewAbstract;
 
 class Index extends ViewAbstract
 {
+	/**
+	 * @Inject
+	 * @var PSX\Template
+	 */
+	protected $template;
+
 	public function onLoad()
 	{
-		$this->getTemplate()->assign('title', 'PSX Framework');
-		$this->getTemplate()->assign('subTitle', 'Template sample ...');
+		parent::onLoad();
+
+		$this->template->assign('title', 'PSX Framework');
+		$this->template->assign('subTitle', 'Sample application');
 	}
 }

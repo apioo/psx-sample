@@ -7,7 +7,7 @@
 	<link rel="icon" href="<?php echo $base; ?>/img/favicon.ico" type="image/x-icon" />
 	<link href="<?php echo $base; ?>/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link href="<?php echo $base; ?>/css/default.css" rel="stylesheet" media="screen" />
-	<script src="//code.jquery.com/jquery.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="<?php echo $base; ?>/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -23,7 +23,7 @@
 		<div class="col-md-12">
 			<h3>Welcome,</h3>
 			<p>This is an PSX sample application. It should help to bootstrap a
-			project by providing all needed files and some examples. You can 
+			project by providing all needed files and some examples. You can
 			install this sample through composer:</p>
 
 			<pre>php composer.phar create-project psx/sample .</pre>
@@ -34,8 +34,6 @@
 			<dl>
 				<dt>format</dt>
 				<dd><code>xml</code>|<code>json</code>|<code>jsonp</code>|<code>atom</code></dd>
-				<dt>fields</dt>
-				<dd>A comma seperated list of fields wich should be selected</dd>
 				<dt>startIndex</dt>
 				<dd>Where to start in the resultset</dd>
 				<dt>count</dt>
