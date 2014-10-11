@@ -3,6 +3,7 @@
   "description": "PSX sample project",
   "homepage": "http://phpsx.org",
   "license": "GPL-3.0",
+  "minimum-stability": "RC",
   "authors": [
     {
       "name": "Christoph Kappestein",

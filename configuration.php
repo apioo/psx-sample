@@ -36,7 +36,7 @@ $config = array(
 	'psx_routing'             => '../routes',
 	'psx_error_template'      => null,
 	'psx_path_cache'          => '../cache',
-	'psx_path_library'        => '../library',
+	'psx_path_library'        => '../src',
 
 );
 
