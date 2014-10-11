@@ -3,8 +3,8 @@ PSX Sample
 
 ## About
 
-This is an simple sample application wich can bootstrap a project based on the
-PSX framework. You can install this sample through composer
+This is an sample application wich can bootstrap a project based on the PSX 
+framework. You can install this sample through composer
 
 php composer.phar create-project psx/sample .
 

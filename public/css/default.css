@@ -4,23 +4,61 @@ body
 	background-color:#eee;
 }
 
-header
-{
-	margin-top:16px;
-}
-
-footer
-{
-	text-align:right;
-}
-
 .container
 {
 	margin-top:8px;
 	background-color:#fff;
 }
 
-dd
+.psx-header
+{
+	margin-top:16px;
+	padding-bottom:16px;
+	border-bottom:4px double #eee;
+}
+
+.psx-header h2
+{
+	margin-top:10px;
+	margin-left:12px;
+}
+
+.psx-header small
+{
+	margin-left:12px;
+}
+
+.psx-navigation
+{
+	margin-top:16px;
+}
+
+.psx-navigation ul
+{
+	list-style-type:none;
+	padding:0px;
+}
+
+.psx-navigation li
+{
+}
+
+.psx-navigation a
+{
+	display:block;
+	padding:8px 4px;
+}
+
+.psx-content
+{
+}
+
+.psx-content dd
 {
 	margin-left:16px;
+}
+
+.psx-footer
+{
+	text-align:right;
 }

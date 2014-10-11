@@ -1,68 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PSX Sample</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="generator" content="psx" />
-	<link rel="icon" href="<?php echo $base; ?>/img/favicon.ico" type="image/x-icon" />
-	<link href="<?php echo $base; ?>/css/bootstrap.min.css" rel="stylesheet" media="screen">
-	<link href="<?php echo $base; ?>/css/default.css" rel="stylesheet" media="screen" />
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="<?php echo $base; ?>/js/bootstrap.min.js"></script>
+	<?php include($location . '/inc/head.tpl'); ?>
 </head>
 <body>
+
+<script type="text/javascript">
+if ("undefined" == typeof jQuery) {
+	var psxUrl = location.href;
+	var pos = psxUrl.indexOf('index.php');
+	if (pos != -1) {
+		psxUrl = psxUrl.substr(0, pos);
+	}
+
+	if (psxUrl.charAt(psxUrl.length - 1) == '/') {
+		psxUrl = psxUrl.substr(0, psxUrl.length - 1);
+	}
+
+	document.write('<div><b>Warning: It looks like the project was not correctly configured. Please open the file configuration.php and change the key <code>"psx_url"</code> to: <code>"' + psxUrl + '"</code>.</b></div>');
+}
+</script>
 
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<?php include($location . '/inc/header.tpl'); ?>
+			<header class="psx-header">
+				<div class="media">
+					<a class="pull-left" href="#">
+						<img src="<?php echo $base ?>/img/logo.png" alt="logo" class="media-object" />
+					</a>
+					<div class="media-body">
+						<h2 class="media-heading"><a href="<?php echo $url ?>">PSX Framework</a></h2>
+						<small>A framework to build RESTful APIs</small>
+					</div>
+				</div>
+			</header>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2">
+			<nav class="psx-navigation">
+				<ul>
+					<li><a href="<?php echo $router->getUrl('Sample\Welcome\Application\Index'); ?>">Getting started</a></li>
+					<li><a href="<?php echo $router->getUrl('Sample\Api\InternetPopulation\Endpoint\Collection'); ?>">Api</a></li>
+					<li><a href="<?php echo $router->getUrl('PSX\Controller\Tool\ToolController'); ?>">Tools</a></li>
+					<li><a href="http://phpsx.org/doc">Documentation</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="col-md-10">
+			<div class="psx-content">
+				<h3>Welcome,</h3>
+
+				<p>This is an PSX sample application. It should help to bootstrap a
+				project by providing all needed files and some examples. You can
+				install this sample through composer:</p>
+
+				<pre>php composer.phar create-project psx/sample .</pre>
+
+				<p>This sample application has an <a href="<?php echo $router->getUrl('Sample\Api\InternetPopulation\Endpoint\Collection'); ?>">API</a>
+				endpoint wich showcases some features of PSX howto easily build an 
+				REST API. This project has also installed some tools which i.e. 
+				automatically generate documentation or an WSDL or Swagger 
+				definition of the API. In the following a short description about
+				each tool:</p>
+
+				<dl>
+					<dt><a href="<?php echo $router->getUrl('PSX\Controller\Tool\RoutingController'); ?>">Routing</a></dt>
+					<dd>Gives an overview of all available routing definitions</dd>
+					<dt><a href="<?php echo $router->getUrl('PSX\Controller\Tool\CommandController'); ?>">Command</a></dt>
+					<dd>Provides an interface to execute PSX commands</dd>
+					<dt><a href="<?php echo $router->getUrl('PSX\Controller\Tool\RestController'); ?>">Console</a></dt>
+					<dd>An javascript based REST API console to execute HTTP request</dd>
+					<dt><a href="<?php echo $router->getUrl('PSX\Controller\Tool\DocumentationController'); ?>">Documentation</a></dt>
+					<dd>Generates automatically an documentation from all available API endpoints</dd>
+				</dl>
+
+				<p>More informations about PSX at:</p>
+				<dl>
+					<dt>Website</dt>
+					<dd><a href="http://phpsx.org">http://phpsx.org</a></dd>
+					<dt>Github</dt>
+					<dd><a href="https://github.com/k42b3/psx">https://github.com/k42b3/psx</a></dd>
+				</dl>
+			</div>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-md-12">
-			<h3>Welcome,</h3>
-			<p>This is an PSX sample application. It should help to bootstrap a
-			project by providing all needed files and some examples. You can
-			install this sample through composer:</p>
-
-			<pre>php composer.phar create-project psx/sample .</pre>
-
-			<p>This sample application has an <a href="<?php echo $router->getUrl('Sample\Api\Application\Api'); ?>">API</a>
-			endpoint wich showcases some features of PSX howto easily build an 
-			REST API. The API supports the following query GET parameters:</p>
-			<dl>
-				<dt>format</dt>
-				<dd><code>xml</code>|<code>json</code>|<code>jsonp</code>|<code>atom</code></dd>
-				<dt>startIndex</dt>
-				<dd>Where to start in the resultset</dd>
-				<dt>count</dt>
-				<dd>The maximum number of entries</dd>
-				<dt>sortBy</dt>
-				<dd>The field after wich the resultset is sorted</dd>
-				<dt>sortOrder</dt>
-				<dd><code>ascending</code>|<code>descending</code></dd>
-				<dt>filterBy</dt>
-				<dd>The filter is applied on the given column</dd>
-				<dt>filterOp</dt>
-				<dd><code>contains</code>|<code>equals</code>|<code>startsWith</code>|<code>present</code></dd>
-				<dt>filterValue</dt>
-				<dd>The filter value</dd>
-			</dl>
-
-			<p>More informations about PSX at:</p>
-			<dl>
-				<dt>Website</dt>
-				<dd><a href="http://phpsx.org">http://phpsx.org</a></dd>
-				<dt>Github</dt>
-				<dd><a href="https://github.com/k42b3/psx">https://github.com/k42b3/psx</a></dd>
-			</dl>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-12">
-			<?php include($location . '/inc/footer.tpl'); ?>
+			<footer class="psx-footer">
+				<address>powered by <a href="http://phpsx.org">psx version <?php echo \PSX\Base::getVersion(); ?></a></address>
+			</footer>
 		</div>
 	</div>
 </div>
