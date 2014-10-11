@@ -10,10 +10,9 @@ class Population extends SchemaAbstract
 	{
 		$sb = $this->getSchemaBuilder('entry');
 		$sb->integer('id');
-		$sb->string('place')
-			->setMinLength(3)
-			->setMaxLength(64)
-			->setPattern('[A-z]+');
+		$sb->integer('place')
+			->setMin(1)
+			->setMax(64);
 		$sb->string('region')
 			->setMinLength(3)
 			->setMaxLength(64)

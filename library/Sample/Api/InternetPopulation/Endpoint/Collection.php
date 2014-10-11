@@ -54,7 +54,7 @@ class Collection extends SchemaApiAbstract
 		);
 	}
 
-	protected function doPost(RecordInterface $record, Version $version)
+	protected function doCreate(RecordInterface $record, Version $version)
 	{
 		$this->tableManager
 			->getTable('Sample\Api\InternetPopulation\Table')
@@ -66,7 +66,7 @@ class Collection extends SchemaApiAbstract
 		);
 	}
 
-	protected function doPut(RecordInterface $record, Version $version)
+	protected function doUpdate(RecordInterface $record, Version $version)
 	{
 		$this->tableManager
 			->getTable('Sample\Api\InternetPopulation\Table')
