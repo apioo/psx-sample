@@ -12,11 +12,11 @@
   ],
   "require": {
     "php": ">=5.3",
-    "psx/psx": "~0.9@dev"
+    "psx/psx": "0.9.2@dev"
   },
   "autoload": {
     "psr-0": {
-      "Sample": "library/"
+      "Sample": "src/"
     }
   }
 }
