@@ -14,7 +14,7 @@ class Entity extends SchemaApiAbstract
 {
 	/**
 	 * @Inject
-	 * @var PSX\Sql\TableManager
+	 * @var PSX\Sql\TableManagerInterface
 	 */
 	protected $tableManager;
 	
@@ -44,5 +44,17 @@ class Entity extends SchemaApiAbstract
 		}
 
 		return $result;
+	}
+
+	protected function doCreate(RecordInterface $record, Version $version)
+	{
+	}
+
+	protected function doUpdate(RecordInterface $record, Version $version)
+	{
+	}
+
+	protected function doDelete(RecordInterface $record, Version $version)
+	{
 	}
 }

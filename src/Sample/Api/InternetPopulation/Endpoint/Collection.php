@@ -13,7 +13,7 @@ class Collection extends SchemaApiAbstract
 {
 	/**
 	 * @Inject
-	 * @var PSX\Sql\TableManager
+	 * @var PSX\Sql\TableManagerInterface
 	 */
 	protected $tableManager;
 	

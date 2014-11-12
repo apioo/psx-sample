@@ -14,7 +14,7 @@ body
 {
 	margin-top:16px;
 	padding-bottom:16px;
-	border-bottom:4px double #eee;
+	border-bottom:4px solid #eee;
 }
 
 .psx-header h2
@@ -51,6 +51,7 @@ body
 
 .psx-content
 {
+	padding-top:22px;
 }
 
 .psx-content dd
@@ -61,4 +62,5 @@ body
 .psx-footer
 {
 	text-align:right;
+	color:#aaa;
 }

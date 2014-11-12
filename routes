@@ -4,11 +4,10 @@ GET                 /                            Sample\Welcome\Application\Inde
 
 # sample API
 GET|POST|PUT|DELETE /internet                    Sample\Api\InternetPopulation\Endpoint\Collection
-GET                 /internet/:id                Sample\Api\InternetPopulation\Endpoint\Entity
+GET|POST|PUT|DELETE /internet/:id                Sample\Api\InternetPopulation\Endpoint\Entity
 
 # tool controller
 GET                 /tool/  	                 PSX\Controller\Tool\ToolController
-GET|POST            /tool/command                PSX\Controller\Tool\CommandController
 GET|POST            /tool/routing                PSX\Controller\Tool\RoutingController
 GET                 /tool/rest                   PSX\Controller\Tool\RestController
 GET                 /tool/doc                    PSX\Controller\Tool\DocumentationController

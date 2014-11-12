@@ -6,7 +6,7 @@ PSX Sample
 This is an sample application wich can bootstrap a project based on the PSX 
 framework. You can install this sample through composer
 
-php composer.phar create-project psx/sample .
+> php composer.phar create-project psx/sample .
 
 More informations about PSX at http://phpsx.org
 

@@ -51,30 +51,20 @@ if ("undefined" == typeof jQuery) {
 		</div>
 		<div class="col-md-10">
 			<div class="psx-content">
-				<h3>Welcome,</h3>
+				<p><?php echo $message; ?></p>
 
-				<p>This is an PSX sample application. It should help to bootstrap a
-				project by providing all needed files and some examples. You can
-				install this sample through composer:</p>
-
-				<pre>php composer.phar create-project psx/sample .</pre>
-
-				<p>This sample application has an <a href="<?php echo $router->getUrl('Sample\Api\InternetPopulation\Endpoint\Collection'); ?>">API</a>
-				endpoint wich showcases some features of PSX howto easily build an 
-				REST API. This project has also installed some tools which i.e. 
-				automatically generate documentation or an WSDL or Swagger 
-				definition of the API. In the following a short description about
-				each tool:</p>
+				<p>This application has an example <a href="<?php echo $router->getUrl('Sample\Api\InternetPopulation\Endpoint\Collection'); ?>">API</a>
+				endpoint wich showcases some features of PSX. Also there are some 
+				<a href="<?php echo $router->getUrl('PSX\Controller\Tool\ToolController'); ?>">tools</a> 
+				installed which i.e. can automatically generate a documentation 
+				or an WSDL/Swagger definition for the API. In the following a short 
+				description about each tool:</p>
 
 				<dl>
-					<dt><a href="<?php echo $router->getUrl('PSX\Controller\Tool\RoutingController'); ?>">Routing</a></dt>
-					<dd>Gives an overview of all available routing definitions</dd>
-					<dt><a href="<?php echo $router->getUrl('PSX\Controller\Tool\CommandController'); ?>">Command</a></dt>
-					<dd>Provides an interface to execute PSX commands</dd>
-					<dt><a href="<?php echo $router->getUrl('PSX\Controller\Tool\RestController'); ?>">Console</a></dt>
-					<dd>An javascript based REST API console to execute HTTP request</dd>
-					<dt><a href="<?php echo $router->getUrl('PSX\Controller\Tool\DocumentationController'); ?>">Documentation</a></dt>
-					<dd>Generates automatically an documentation from all available API endpoints</dd>
+					<?php foreach($links as $link): ?>
+					<dt><a href="<?php echo $link['href']; ?>"><?php echo ucfirst($link['rel']); ?></a></dt>
+					<dd><?php echo $link['meta']; ?></dd>
+					<?php endforeach; ?>
 				</dl>
 
 				<p>More informations about PSX at:</p>
@@ -91,7 +81,7 @@ if ("undefined" == typeof jQuery) {
 	<div class="row">
 		<div class="col-md-12">
 			<footer class="psx-footer">
-				<address>powered by <a href="http://phpsx.org">psx version <?php echo \PSX\Base::getVersion(); ?></a></address>
+				<address>powered by <a href="http://phpsx.org">PSX</a> version <?php echo \PSX\Base::getVersion(); ?></address>
 			</footer>
 		</div>
 	</div>
