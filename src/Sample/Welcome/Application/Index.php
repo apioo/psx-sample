@@ -37,7 +37,7 @@ class Index extends ViewAbstract
 				),
 				array(
 					'rel'  => 'documentation',
-					'href' => $this->reverseRouter->getUrl('PSX\Controller\Tool\DocumentationController'),
+					'href' => $this->reverseRouter->getUrl('PSX\Controller\Tool\DocumentationController::doIndex'),
 					'meta' => 'Generates an API documentation from all available endpoints',
 				),
 			)
