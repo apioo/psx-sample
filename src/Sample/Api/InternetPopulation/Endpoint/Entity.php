@@ -26,10 +26,10 @@ class Entity extends SchemaApiAbstract
 
 	public function getDocumentation()
 	{
-		$view = new View();
-		$view->setGet($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Population'));
+		$builder = new View\Builder();
+		$builder->setGet($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Population'));
 
-		return new Documentation\Simple($view);
+		return new Documentation\Simple($builder->getView());
 	}
 
 	protected function doGet(Version $version)
@@ -38,7 +38,7 @@ class Entity extends SchemaApiAbstract
 			->getTable('Sample\Api\InternetPopulation\Table')
 			->get($this->getUriFragment('id'));
 
-		if(!$result instanceof RecordInterface)
+		if(empty($result))
 		{
 			throw new HttpException\NotFoundException('Internet population not found');
 		}

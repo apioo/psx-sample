@@ -27,13 +27,13 @@ class Collection extends SchemaApiAbstract
 	{
 		$message = $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Message');
 
-		$view = new View();
-		$view->setGet($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Collection'));
-		$view->setPost($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Create'), $message);
-		$view->setPut($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Update'), $message);
-		$view->setDelete($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Delete'), $message);
+		$builder = new View\Builder();
+		$builder->setGet($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Collection'));
+		$builder->setPost($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Create'), $message);
+		$builder->setPut($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Update'), $message);
+		$builder->setDelete($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Delete'), $message);
 
-		return new Documentation\Simple($view);
+		return new Documentation\Simple($builder->getView());
 	}
 
 	protected function doGet(Version $version)

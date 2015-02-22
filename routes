@@ -13,5 +13,6 @@ GET                 /tool/rest                   PSX\Controller\Tool\RestControl
 GET                 /tool/doc                    PSX\Controller\Tool\DocumentationController::doIndex
 GET                 /tool/doc/:version/*path     PSX\Controller\Tool\DocumentationController::doDetail
 GET                 /tool/wsdl/:version/*path    PSX\Controller\Tool\WsdlGeneratorController
-GET                 /tool/swagger/:version/*path PSX\Controller\Tool\SwaggerGeneratorController
-GET                 /tool/swagger                PSX\Controller\Tool\SwaggerGeneratorController
+GET                 /tool/raml/:version/*path    PSX\Controller\Tool\RamlGeneratorController
+GET                 /tool/swagger/:version/*path PSX\Controller\Tool\SwaggerGeneratorController::doIndex
+GET                 /tool/swagger                PSX\Controller\Tool\SwaggerGeneratorController::doDetail

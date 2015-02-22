@@ -9,7 +9,7 @@ class Delete extends SchemaAbstract
 	public function getDefinition()
 	{
 		$entry = $this->getSchema('Sample\Api\InternetPopulation\Schema\Population');
-		$entry->getChild('id')->setRequired(true);
+		$entry->get('id')->setRequired(true);
 
 		return $entry;
 	}
