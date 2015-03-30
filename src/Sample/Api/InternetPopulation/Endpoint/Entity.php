@@ -4,11 +4,12 @@ namespace Sample\Api\InternetPopulation\Endpoint;
 
 use PSX\Api\Documentation;
 use PSX\Api\Version;
-use PSX\Api\View;
+use PSX\Api\Resource;
 use PSX\Controller\SchemaApiAbstract;
 use PSX\Data\RecordInterface;
-use PSX\Util\Api\FilterParameter;
+use PSX\Data\Schema\Property;
 use PSX\Http\Exception as HttpException;
+use PSX\Loader\Context;
 
 class Entity extends SchemaApiAbstract
 {
@@ -26,17 +27,31 @@ class Entity extends SchemaApiAbstract
 
 	public function getDocumentation()
 	{
-		$builder = new View\Builder();
-		$builder->setGet($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Population'));
+		$resource = new Resource(Resource::STATUS_ACTIVE, $this->context->get(Context::KEY_PATH));
+		$resource->addPathParameter(new Property\Integer('id'));
 
-		return new Documentation\Simple($builder->getView());
+		$resource->addMethod(Resource\Factory::getMethod('GET')
+			->addResponse(200, $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Population'))
+		);
+
+		$resource->addMethod(Resource\Factory::getMethod('PUT')
+			->setRequest($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Update'))
+			->addResponse(200, $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Message'))
+		);
+
+		$resource->addMethod(Resource\Factory::getMethod('DELETE')
+			->setRequest($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Delete'))
+			->addResponse(200, $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Message'))
+		);
+
+		return new Documentation\Simple($resource);
 	}
 
 	protected function doGet(Version $version)
 	{
 		$result = $this->tableManager
 			->getTable('Sample\Api\InternetPopulation\Table')
-			->get($this->getUriFragment('id'));
+			->get($this->pathParameters->getProperty('id'));
 
 		if(empty($result))
 		{
@@ -52,9 +67,29 @@ class Entity extends SchemaApiAbstract
 
 	protected function doUpdate(RecordInterface $record, Version $version)
 	{
+		$record->setId($this->pathParameters->getProperty('id'));
+
+		$this->tableManager
+			->getTable('Sample\Api\InternetPopulation\Table')
+			->update($record);
+
+		return array(
+			'success' => true,
+			'message' => 'Update successful',
+		);
 	}
 
 	protected function doDelete(RecordInterface $record, Version $version)
 	{
+		$record->setId($this->pathParameters->getProperty('id'));
+
+		$this->tableManager
+			->getTable('Sample\Api\InternetPopulation\Table')
+			->delete($record);
+
+		return array(
+			'success' => true,
+			'message' => 'Delete successful',
+		);
 	}
 }

@@ -32,7 +32,7 @@ class Index extends ViewAbstract
 				),
 				array(
 					'rel'  => 'console',
-					'href' => $this->reverseRouter->getUrl('PSX\Controller\Tool\RestController'),
+					'href' => $this->reverseRouter->getUrl('PSX\Controller\Tool\RestClientController'),
 					'meta' => 'An javascript based REST API console to execute HTTP request',
 				),
 				array(

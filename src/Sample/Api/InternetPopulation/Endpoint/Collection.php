@@ -4,10 +4,11 @@ namespace Sample\Api\InternetPopulation\Endpoint;
 
 use PSX\Api\Documentation;
 use PSX\Api\Version;
-use PSX\Api\View;
+use PSX\Api\Resource;
 use PSX\Controller\SchemaApiAbstract;
 use PSX\Data\RecordInterface;
-use PSX\Util\Api\FilterParameter;
+use PSX\Data\Schema\Property;
+use PSX\Loader\Context;
 
 class Collection extends SchemaApiAbstract
 {
@@ -25,29 +26,28 @@ class Collection extends SchemaApiAbstract
 
 	public function getDocumentation()
 	{
-		$message = $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Message');
+		$resource = new Resource(Resource::STATUS_ACTIVE, $this->context->get(Context::KEY_PATH));
 
-		$builder = new View\Builder();
-		$builder->setGet($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Collection'));
-		$builder->setPost($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Create'), $message);
-		$builder->setPut($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Update'), $message);
-		$builder->setDelete($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Delete'), $message);
+		$resource->addMethod(Resource\Factory::getMethod('GET')
+			->addQueryParameter(new Property\Integer('startIndex'))
+			->addQueryParameter(new Property\Integer('count'))
+			->addResponse(200, $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Collection'))
+		);
 
-		return new Documentation\Simple($builder->getView());
+		$resource->addMethod(Resource\Factory::getMethod('POST')
+			->setRequest($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Create'))
+			->addResponse(200, $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Message'))
+		);
+
+		return new Documentation\Simple($resource);
 	}
 
 	protected function doGet(Version $version)
 	{
-		$parameter = $this->getFilterParameter();
-		$condition = FilterParameter::getCondition($parameter);
-
 		$result = $this->tableManager
 			->getTable('Sample\Api\InternetPopulation\Table')
-			->getAll($parameter->getStartIndex(), 
-				$parameter->getCount(), 
-				$parameter->getSortBy(), 
-				$parameter->getSortOrder(), 
-				$condition);
+			->getAll($this->queryParameters->getProperty('startIndex'), 
+				$this->queryParameters->getProperty('count'));
 
 		return array(
 			'entry' => $result
@@ -68,25 +68,9 @@ class Collection extends SchemaApiAbstract
 
 	protected function doUpdate(RecordInterface $record, Version $version)
 	{
-		$this->tableManager
-			->getTable('Sample\Api\InternetPopulation\Table')
-			->update($record);
-
-		return array(
-			'success' => true,
-			'message' => 'Update successful',
-		);
 	}
 
 	protected function doDelete(RecordInterface $record, Version $version)
 	{
-		$this->tableManager
-			->getTable('Sample\Api\InternetPopulation\Table')
-			->delete($record);
-
-		return array(
-			'success' => true,
-			'message' => 'Delete successful',
-		);
 	}
 }
