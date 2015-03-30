@@ -56,6 +56,8 @@ class Collection extends SchemaApiAbstract
 
 	protected function doCreate(RecordInterface $record, Version $version)
 	{
+		$record->setDatetime(new \DateTime());
+
 		$this->tableManager
 			->getTable('Sample\Api\InternetPopulation\Table')
 			->create($record);

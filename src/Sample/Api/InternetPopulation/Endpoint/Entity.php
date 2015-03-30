@@ -40,7 +40,6 @@ class Entity extends SchemaApiAbstract
 		);
 
 		$resource->addMethod(Resource\Factory::getMethod('DELETE')
-			->setRequest($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Delete'))
 			->addResponse(200, $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Message'))
 		);
 
@@ -49,16 +48,7 @@ class Entity extends SchemaApiAbstract
 
 	protected function doGet(Version $version)
 	{
-		$result = $this->tableManager
-			->getTable('Sample\Api\InternetPopulation\Table')
-			->get($this->pathParameters->getProperty('id'));
-
-		if(empty($result))
-		{
-			throw new HttpException\NotFoundException('Internet population not found');
-		}
-
-		return $result;
+		return $this->getInternetPopulation();
 	}
 
 	protected function doCreate(RecordInterface $record, Version $version)
@@ -67,7 +57,9 @@ class Entity extends SchemaApiAbstract
 
 	protected function doUpdate(RecordInterface $record, Version $version)
 	{
-		$record->setId($this->pathParameters->getProperty('id'));
+		$population = $this->getInternetPopulation();
+
+		$record->setId($population->getId());
 
 		$this->tableManager
 			->getTable('Sample\Api\InternetPopulation\Table')
@@ -81,7 +73,9 @@ class Entity extends SchemaApiAbstract
 
 	protected function doDelete(RecordInterface $record, Version $version)
 	{
-		$record->setId($this->pathParameters->getProperty('id'));
+		$population = $this->getInternetPopulation();
+
+		$record->setId($population->getId());
 
 		$this->tableManager
 			->getTable('Sample\Api\InternetPopulation\Table')
@@ -91,5 +85,19 @@ class Entity extends SchemaApiAbstract
 			'success' => true,
 			'message' => 'Delete successful',
 		);
+	}
+
+	protected function getInternetPopulation()
+	{
+		$result = $this->tableManager
+			->getTable('Sample\Api\InternetPopulation\Table')
+			->get($this->pathParameters->getProperty('id'));
+
+		if(empty($result))
+		{
+			throw new HttpException\NotFoundException('Internet population not found');
+		}
+
+		return $result;
 	}
 }
