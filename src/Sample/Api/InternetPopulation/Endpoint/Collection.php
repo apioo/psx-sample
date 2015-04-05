@@ -36,7 +36,7 @@ class Collection extends SchemaApiAbstract
 
 		$resource->addMethod(Resource\Factory::getMethod('POST')
 			->setRequest($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Create'))
-			->addResponse(200, $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Message'))
+			->addResponse(201, $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Message'))
 		);
 
 		return new Documentation\Simple($resource);
