@@ -8,12 +8,6 @@ class Index extends ApiAbstract
 {
 	/**
 	 * @Inject
-	 * @var PSX\Template
-	 */
-	protected $template;
-
-	/**
-	 * @Inject
 	 * @var PSX\Loader\ReverseRouter
 	 */
 	protected $reverseRouter;
