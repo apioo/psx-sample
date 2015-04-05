@@ -1,15 +1,12 @@
 
-# welcome page
-GET                 /                            Sample\Welcome\Application\Index
-
-# sample API
+# API
+GET                 /                            Sample\Api\InternetPopulation\Endpoint\Index
 GET|POST|PUT|DELETE /internet                    Sample\Api\InternetPopulation\Endpoint\Collection
 GET|POST|PUT|DELETE /internet/:id                Sample\Api\InternetPopulation\Endpoint\Entity
 
 # tool controller
-GET                 /tool/  	                 PSX\Controller\Tool\ToolController
-GET|POST            /tool/routing                PSX\Controller\Tool\RoutingController
-GET                 /tool/rest_client            PSX\Controller\Tool\RestClientController
+GET                 /tool/discovery              PSX\Controller\Tool\DiscoveryController
+GET                 /tool/routing                PSX\Controller\Tool\RoutingController
 GET                 /tool/doc                    PSX\Controller\Tool\DocumentationController::doIndex
 GET                 /tool/doc/:version/*path     PSX\Controller\Tool\DocumentationController::doDetail
 GET                 /tool/wsdl/:version/*path    PSX\Controller\Tool\WsdlGeneratorController
