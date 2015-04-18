@@ -6,6 +6,7 @@ use PSX\Http\Request;
 use PSX\Http\Response;
 use PSX\Http\Stream\TempStream;
 use PSX\Test\ControllerDbTestCase;
+use PSX\Test\Environment;
 use PSX\Url;
 
 class EntityTest extends ControllerDbTestCase
@@ -84,13 +85,13 @@ JSON;
 		$this->assertJsonStringEqualsJsonString($expect, $body, $body);
 
         // check database
-        $sql = getContainer()->get('connection')->createQueryBuilder()
+        $sql = Environment::getService('connection')->createQueryBuilder()
             ->select('id', 'place', 'region', 'population', 'users', 'world_users')
             ->from('internet_population')
             ->where('id = :id')
             ->getSQL();
 
-        $result = getContainer()->get('connection')->fetchAssoc($sql, ['id' => 1]);
+        $result = Environment::getService('connection')->fetchAssoc($sql, ['id' => 1]);
         $expect = [
             'id' => 1, 
             'place' => 11, 
@@ -124,13 +125,13 @@ JSON;
         $this->assertJsonStringEqualsJsonString($expect, $body, $body);
 
         // check database
-        $sql = getContainer()->get('connection')->createQueryBuilder()
+        $sql = Environment::getService('connection')->createQueryBuilder()
             ->select('id', 'place', 'region', 'population', 'users', 'world_users')
             ->from('internet_population')
             ->where('id = :id')
             ->getSQL();
 
-        $result = getContainer()->get('connection')->fetchAssoc($sql, ['id' => 1]);
+        $result = Environment::getService('connection')->fetchAssoc($sql, ['id' => 1]);
 
         $this->assertEmpty($result);
     }

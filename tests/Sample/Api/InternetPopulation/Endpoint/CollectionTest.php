@@ -6,6 +6,7 @@ use PSX\Http\Request;
 use PSX\Http\Response;
 use PSX\Http\Stream\TempStream;
 use PSX\Test\ControllerDbTestCase;
+use PSX\Test\Environment;
 use PSX\Url;
 
 class CollectionTest extends ControllerDbTestCase
@@ -214,7 +215,7 @@ JSON;
 		$this->assertJsonStringEqualsJsonString($expect, $body, $body);
 
         // check database
-        $sql = getContainer()->get('connection')->createQueryBuilder()
+        $sql = Environment::getService('connection')->createQueryBuilder()
             ->select('id', 'place', 'region', 'population', 'users', 'world_users')
             ->from('internet_population')
             ->orderBy('id', 'DESC')
@@ -222,7 +223,7 @@ JSON;
             ->setMaxResults(2)
             ->getSQL();
 
-        $result = getContainer()->get('connection')->fetchAll($sql);
+        $result = Environment::getService('connection')->fetchAll($sql);
         $expect = [
             ['id' => 11, 'place' => 11, 'region' => 'Foo', 'population' => 1024, 'users' => 512, 'world_users' => 0.6],
             ['id' => 10, 'place' => 10, 'region' => 'Korea South', 'population' => 48508972, 'users' => 37475800, 'world_users' => 2.2],

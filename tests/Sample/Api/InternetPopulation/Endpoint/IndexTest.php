@@ -6,6 +6,7 @@ use PSX\Http\Request;
 use PSX\Http\Response;
 use PSX\Http\Stream\TempStream;
 use PSX\Test\ControllerTestCase;
+use PSX\Test\Environment;
 use PSX\Url;
 
 class IndexTest extends ControllerTestCase
@@ -19,7 +20,7 @@ class IndexTest extends ControllerTestCase
 
 		$this->loadController($request, $response);
 
-        $router     = getContainer()->get('reverse_router');
+        $router     = Environment::getService('reverse_router');
         $routePath  = $router->getUrl('PSX\Controller\Tool\RoutingController');
         $docPath    = $router->getUrl('PSX\Controller\Tool\DocumentationController::doIndex');
         $clientPath = $router->getBasePath() . '/documentation';
