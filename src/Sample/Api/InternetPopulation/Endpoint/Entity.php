@@ -2,12 +2,10 @@
 
 namespace Sample\Api\InternetPopulation\Endpoint;
 
-use PSX\Api\Documentation;
+use PSX\Api\Documentation\Parser\Raml;
 use PSX\Api\Version;
-use PSX\Api\Resource;
 use PSX\Controller\SchemaApiAbstract;
 use PSX\Data\RecordInterface;
-use PSX\Data\Schema\Property;
 use PSX\Http\Exception as HttpException;
 use PSX\Loader\Context;
 
@@ -27,23 +25,7 @@ class Entity extends SchemaApiAbstract
 
 	public function getDocumentation()
 	{
-		$resource = new Resource(Resource::STATUS_ACTIVE, $this->context->get(Context::KEY_PATH));
-		$resource->addPathParameter(new Property\Integer('id'));
-
-		$resource->addMethod(Resource\Factory::getMethod('GET')
-			->addResponse(200, $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Population'))
-		);
-
-		$resource->addMethod(Resource\Factory::getMethod('PUT')
-			->setRequest($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Update'))
-			->addResponse(200, $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Message'))
-		);
-
-		$resource->addMethod(Resource\Factory::getMethod('DELETE')
-			->addResponse(200, $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Message'))
-		);
-
-		return new Documentation\Simple($resource);
+		return Raml::fromFile(__DIR__ . '/../Resource/population.raml', $this->context->get(Context::KEY_PATH));
 	}
 
 	protected function doGet(Version $version)
@@ -65,10 +47,10 @@ class Entity extends SchemaApiAbstract
 			->getTable('Sample\Api\InternetPopulation\Table')
 			->update($record);
 
-		return array(
+		return [
 			'success' => true,
 			'message' => 'Update successful',
-		);
+		];
 	}
 
 	protected function doDelete(RecordInterface $record, Version $version)
@@ -81,10 +63,10 @@ class Entity extends SchemaApiAbstract
 			->getTable('Sample\Api\InternetPopulation\Table')
 			->delete($record);
 
-		return array(
+		return [
 			'success' => true,
 			'message' => 'Delete successful',
-		);
+		];
 	}
 
 	protected function getInternetPopulation()

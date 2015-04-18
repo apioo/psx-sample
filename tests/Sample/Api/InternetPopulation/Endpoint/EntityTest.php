@@ -18,7 +18,7 @@ class EntityTest extends ControllerDbTestCase
 	public function testGet()
 	{
 		$body     = new TempStream(fopen('php://memory', 'r+'));
-		$request  = new Request(new Url('http://127.0.0.1/api/1'), 'GET');
+		$request  = new Request(new Url('http://127.0.0.1/internet/1'), 'GET');
 		$response = new Response();
 		$response->setBody($body);
 
@@ -37,30 +37,36 @@ class EntityTest extends ControllerDbTestCase
 }
 JSON;
 
-        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(200, $response->getStatusCode(), $body);
 		$this->assertJsonStringEqualsJsonString($expect, $body, $body);
 	}
 
     public function testPost()
     {
         $body     = new TempStream(fopen('php://memory', 'r+'));
-        $request  = new Request(new Url('http://127.0.0.1/api/1'), 'POST');
+        $request  = new Request(new Url('http://127.0.0.1/internet/1'), 'POST');
         $response = new Response();
         $response->setBody($body);
 
         $this->loadController($request, $response);
 
-        $this->assertEquals(405, $response->getStatusCode());
+        $body = (string) $response->getBody();
+
+        $this->assertEquals(405, $response->getStatusCode(), $body);
     }
 
 	public function testPut()
 	{
-		$payload  = json_encode(array(
-            'place'  => 11,
-            'region' => 'Foo',
-        ));
+        $payload  = json_encode([
+            'id'          => 1,
+            'place'       => 11,
+            'region'      => 'Foo',
+            'population'  => 1024,
+            'users'       => 512,
+            'world_users' => 0.6,
+        ]);
 		$body     = new TempStream(fopen('php://memory', 'r+'));
-		$request  = new Request(new Url('http://127.0.0.1/api/1'), 'PUT', ['Content-Type' => 'application/json'], $payload);
+		$request  = new Request(new Url('http://127.0.0.1/internet/1'), 'PUT', ['Content-Type' => 'application/json'], $payload);
 		$response = new Response();
 		$response->setBody($body);
 
@@ -74,7 +80,7 @@ JSON;
 }
 JSON;
 
-        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(200, $response->getStatusCode(), $body);
 		$this->assertJsonStringEqualsJsonString($expect, $body, $body);
 
         // check database
@@ -89,9 +95,9 @@ JSON;
             'id' => 1, 
             'place' => 11, 
             'region' => 'Foo', 
-            'population' => 1338612968, 
-            'users' => 360000000, 
-            'world_users' => 20.8
+            'population' => 1024, 
+            'users' => 512, 
+            'world_users' => 0.6
         ];
 
         $this->assertEquals($expect, $result);
@@ -100,7 +106,7 @@ JSON;
     public function testDelete()
     {
         $body     = new TempStream(fopen('php://memory', 'r+'));
-        $request  = new Request(new Url('http://127.0.0.1/api/1'), 'DELETE');
+        $request  = new Request(new Url('http://127.0.0.1/internet/1'), 'DELETE');
         $response = new Response();
         $response->setBody($body);
 
@@ -114,7 +120,7 @@ JSON;
 }
 JSON;
 
-        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(200, $response->getStatusCode(), $body);
         $this->assertJsonStringEqualsJsonString($expect, $body, $body);
 
         // check database
@@ -132,7 +138,7 @@ JSON;
 	protected function getPaths()
 	{
 		return array(
-			[['GET', 'POST', 'PUT', 'DELETE'], '/api/:id', 'Sample\Api\InternetPopulation\Endpoint\Entity'],
+			[['GET', 'POST', 'PUT', 'DELETE'], '/internet/:id', 'Sample\Api\InternetPopulation\Endpoint\Entity'],
 		);
 	}
 }

@@ -2,12 +2,10 @@
 
 namespace Sample\Api\InternetPopulation\Endpoint;
 
-use PSX\Api\Documentation;
+use PSX\Api\Documentation\Parser\Raml;
 use PSX\Api\Version;
-use PSX\Api\Resource;
 use PSX\Controller\SchemaApiAbstract;
 use PSX\Data\RecordInterface;
-use PSX\Data\Schema\Property;
 use PSX\Loader\Context;
 
 class Collection extends SchemaApiAbstract
@@ -26,32 +24,20 @@ class Collection extends SchemaApiAbstract
 
 	public function getDocumentation()
 	{
-		$resource = new Resource(Resource::STATUS_ACTIVE, $this->context->get(Context::KEY_PATH));
-
-		$resource->addMethod(Resource\Factory::getMethod('GET')
-			->addQueryParameter(new Property\Integer('startIndex'))
-			->addQueryParameter(new Property\Integer('count'))
-			->addResponse(200, $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Collection'))
-		);
-
-		$resource->addMethod(Resource\Factory::getMethod('POST')
-			->setRequest($this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Create'))
-			->addResponse(201, $this->schemaManager->getSchema('Sample\Api\InternetPopulation\Schema\Message'))
-		);
-
-		return new Documentation\Simple($resource);
+		return Raml::fromFile(__DIR__ . '/../Resource/population.raml', $this->context->get(Context::KEY_PATH));
 	}
 
 	protected function doGet(Version $version)
 	{
-		$result = $this->tableManager
-			->getTable('Sample\Api\InternetPopulation\Table')
-			->getAll($this->queryParameters->getProperty('startIndex'), 
-				$this->queryParameters->getProperty('count'));
+		$table = $this->tableManager->getTable('Sample\Api\InternetPopulation\Table');
 
-		return array(
-			'entry' => $result
-		);
+		return [
+			'totalResults' => $table->getCount(),
+			'entry'        => $table->getAll(
+				$this->queryParameters->getProperty('startIndex'), 
+				$this->queryParameters->getProperty('count')
+			)
+		];
 	}
 
 	protected function doCreate(RecordInterface $record, Version $version)
@@ -62,10 +48,10 @@ class Collection extends SchemaApiAbstract
 			->getTable('Sample\Api\InternetPopulation\Table')
 			->create($record);
 
-		return array(
+		return [
 			'success' => true,
 			'message' => 'Create successful',
-		);
+		];
 	}
 
 	protected function doUpdate(RecordInterface $record, Version $version)
