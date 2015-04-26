@@ -37,7 +37,7 @@ class CollectionTest extends ControllerDbTestCase
             "population": 48508972,
             "users": 37475800,
             "world_users": 2.2,
-            "datetime": "2009-11-29T15:28:06+00:00"
+            "datetime": "2009-11-29T15:28:06Z"
         },
         {
             "id": 9,
@@ -46,7 +46,7 @@ class CollectionTest extends ControllerDbTestCase
             "population": 62150775,
             "users": 43100134,
             "world_users": 2.5,
-            "datetime": "2009-11-29T15:27:37+00:00"
+            "datetime": "2009-11-29T15:27:37Z"
         },
         {
             "id": 8,
@@ -55,7 +55,7 @@ class CollectionTest extends ControllerDbTestCase
             "population": 140041247,
             "users": 45250000,
             "world_users": 2.6,
-            "datetime": "2009-11-29T15:27:07+00:00"
+            "datetime": "2009-11-29T15:27:07Z"
         },
         {
             "id": 7,
@@ -64,7 +64,7 @@ class CollectionTest extends ControllerDbTestCase
             "population": 61113205,
             "users": 46683900,
             "world_users": 2.7,
-            "datetime": "2009-11-29T15:26:27+00:00"
+            "datetime": "2009-11-29T15:26:27Z"
         },
         {
             "id": 6,
@@ -73,7 +73,7 @@ class CollectionTest extends ControllerDbTestCase
             "population": 82329758,
             "users": 54229325,
             "world_users": 3.1,
-            "datetime": "2009-11-29T15:25:58+00:00"
+            "datetime": "2009-11-29T15:25:58Z"
         },
         {
             "id": 5,
@@ -82,7 +82,7 @@ class CollectionTest extends ControllerDbTestCase
             "population": 198739269,
             "users": 67510400,
             "world_users": 3.9,
-            "datetime": "2009-11-29T15:25:20+00:00"
+            "datetime": "2009-11-29T15:25:20Z"
         },
         {
             "id": 4,
@@ -91,7 +91,7 @@ class CollectionTest extends ControllerDbTestCase
             "population": 1156897766,
             "users": 81000000,
             "world_users": 4.7,
-            "datetime": "2009-11-29T15:24:47+00:00"
+            "datetime": "2009-11-29T15:24:47Z"
         },
         {
             "id": 3,
@@ -100,7 +100,7 @@ class CollectionTest extends ControllerDbTestCase
             "population": 127078679,
             "users": 95979000,
             "world_users": 5.5,
-            "datetime": "2009-11-29T15:23:18+00:00"
+            "datetime": "2009-11-29T15:23:18Z"
         },
         {
             "id": 2,
@@ -109,7 +109,7 @@ class CollectionTest extends ControllerDbTestCase
             "population": 307212123,
             "users": 227719000,
             "world_users": 13.1,
-            "datetime": "2009-11-29T15:22:40+00:00"
+            "datetime": "2009-11-29T15:22:40Z"
         },
         {
             "id": 1,
@@ -118,7 +118,7 @@ class CollectionTest extends ControllerDbTestCase
             "population": 1338612968,
             "users": 360000000,
             "world_users": 20.8,
-            "datetime": "2009-11-29T15:21:49+00:00"
+            "datetime": "2009-11-29T15:21:49Z"
         }
     ]
 }
@@ -149,7 +149,7 @@ JSON;
             "population": 82329758,
             "users": 54229325,
             "world_users": 3.1,
-            "datetime": "2009-11-29T15:25:58+00:00"
+            "datetime": "2009-11-29T15:25:58Z"
         },
         {
             "id": 5,
@@ -158,7 +158,7 @@ JSON;
             "population": 198739269,
             "users": 67510400,
             "world_users": 3.9,
-            "datetime": "2009-11-29T15:25:20+00:00"
+            "datetime": "2009-11-29T15:25:20Z"
         },
         {
             "id": 4,
@@ -167,7 +167,7 @@ JSON;
             "population": 1156897766,
             "users": 81000000,
             "world_users": 4.7,
-            "datetime": "2009-11-29T15:24:47+00:00"
+            "datetime": "2009-11-29T15:24:47Z"
         },
         {
             "id": 3,
@@ -176,7 +176,7 @@ JSON;
             "population": 127078679,
             "users": 95979000,
             "world_users": 5.5,
-            "datetime": "2009-11-29T15:23:18+00:00"
+            "datetime": "2009-11-29T15:23:18Z"
         }
     ]
 }

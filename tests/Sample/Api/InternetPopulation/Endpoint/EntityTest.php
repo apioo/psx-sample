@@ -34,7 +34,7 @@ class EntityTest extends ControllerDbTestCase
     "population": 1338612968,
     "users": 360000000,
     "world_users": 20.8,
-    "datetime": "2009-11-29T15:21:49+00:00"
+    "datetime": "2009-11-29T15:21:49Z"
 }
 JSON;
 
