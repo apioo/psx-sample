@@ -31,7 +31,7 @@ class Index extends ApiAbstract
 				),
 				array(
 					'rel'   => 'alternate',
-					'href'  => $this->reverseRouter->getBasePath() . '/documentation',
+					'href'  => $this->reverseRouter->getBasePath() . '/documentation/',
 					'title' => 'HTML client to view the API documentation',
 					'type'  => 'text/html',
 				),
