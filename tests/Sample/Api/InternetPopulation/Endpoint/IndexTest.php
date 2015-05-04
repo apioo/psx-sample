@@ -23,7 +23,7 @@ class IndexTest extends ControllerTestCase
         $router     = Environment::getService('reverse_router');
         $routePath  = $router->getUrl('PSX\Controller\Tool\RoutingController');
         $docPath    = $router->getUrl('PSX\Controller\Tool\DocumentationController::doIndex');
-        $clientPath = $router->getBasePath() . '/documentation';
+        $clientPath = $router->getBasePath() . '/documentation/';
 
 		$body   = (string) $response->getBody();
 		$expect = <<<JSON
