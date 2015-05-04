@@ -21,8 +21,8 @@
  * along with psx. If not, see <http://www.gnu.org/licenses/>.
  */
 
-// server file which can be used by the interal web server. All requests to the
-// documentation folder are not handeled by psx
+// router file which can be used by the PHP internal web server. All requests to
+// the documentation folder are not handeled by psx
 if(preg_match('/^\/documentation\//', $_SERVER['REQUEST_URI']))
 {
 	return false;
