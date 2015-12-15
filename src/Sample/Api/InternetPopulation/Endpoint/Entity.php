@@ -11,75 +11,74 @@ use PSX\Loader\Context;
 
 class Entity extends SchemaApiAbstract
 {
-	/**
-	 * @Inject
-	 * @var PSX\Sql\TableManagerInterface
-	 */
-	protected $tableManager;
-	
-	/**
-	 * @Inject
-	 * @var PSX\Data\SchemaManager
-	 */
-	protected $schemaManager;
+    /**
+     * @Inject
+     * @var PSX\Sql\TableManagerInterface
+     */
+    protected $tableManager;
+    
+    /**
+     * @Inject
+     * @var PSX\Data\SchemaManager
+     */
+    protected $schemaManager;
 
-	public function getDocumentation()
-	{
-		return Raml::fromFile(__DIR__ . '/../Resource/population.raml', $this->context->get(Context::KEY_PATH));
-	}
+    public function getDocumentation()
+    {
+        return Raml::fromFile(__DIR__ . '/../Resource/population.raml', $this->context->get(Context::KEY_PATH));
+    }
 
-	protected function doGet(Version $version)
-	{
-		return $this->getInternetPopulation();
-	}
+    protected function doGet(Version $version)
+    {
+        return $this->getInternetPopulation();
+    }
 
-	protected function doCreate(RecordInterface $record, Version $version)
-	{
-	}
+    protected function doCreate(RecordInterface $record, Version $version)
+    {
+    }
 
-	protected function doUpdate(RecordInterface $record, Version $version)
-	{
-		$population = $this->getInternetPopulation();
+    protected function doUpdate(RecordInterface $record, Version $version)
+    {
+        $population = $this->getInternetPopulation();
 
-		$record->setId($population->getId());
+        $record->setId($population->getId());
 
-		$this->tableManager
-			->getTable('Sample\Api\InternetPopulation\Table')
-			->update($record);
+        $this->tableManager
+            ->getTable('Sample\Api\InternetPopulation\Table')
+            ->update($record);
 
-		return [
-			'success' => true,
-			'message' => 'Update successful',
-		];
-	}
+        return [
+            'success' => true,
+            'message' => 'Update successful',
+        ];
+    }
 
-	protected function doDelete(RecordInterface $record, Version $version)
-	{
-		$population = $this->getInternetPopulation();
+    protected function doDelete(RecordInterface $record, Version $version)
+    {
+        $population = $this->getInternetPopulation();
 
-		$record->setId($population->getId());
+        $record->setId($population->getId());
 
-		$this->tableManager
-			->getTable('Sample\Api\InternetPopulation\Table')
-			->delete($record);
+        $this->tableManager
+            ->getTable('Sample\Api\InternetPopulation\Table')
+            ->delete($record);
 
-		return [
-			'success' => true,
-			'message' => 'Delete successful',
-		];
-	}
+        return [
+            'success' => true,
+            'message' => 'Delete successful',
+        ];
+    }
 
-	protected function getInternetPopulation()
-	{
-		$result = $this->tableManager
-			->getTable('Sample\Api\InternetPopulation\Table')
-			->get($this->pathParameters->getProperty('id'));
+    protected function getInternetPopulation()
+    {
+        $result = $this->tableManager
+            ->getTable('Sample\Api\InternetPopulation\Table')
+            ->get($this->pathParameters->getProperty('id'));
 
-		if(empty($result))
-		{
-			throw new HttpException\NotFoundException('Internet population not found');
-		}
+        if (empty($result)) {
+            throw new HttpException\NotFoundException('Internet population not found');
+        }
 
-		return $result;
-	}
+        return $result;
+    }
 }

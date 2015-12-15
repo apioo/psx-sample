@@ -11,24 +11,24 @@ use PSX\Url;
 
 class IndexTest extends ControllerTestCase
 {
-	public function testGet()
-	{
-		$body     = new TempStream(fopen('php://memory', 'r+'));
-		$request  = new Request(new Url('http://127.0.0.1/api'), 'GET');
-		$response = new Response();
-		$response->setBody($body);
+    public function testGet()
+    {
+        $body     = new TempStream(fopen('php://memory', 'r+'));
+        $request  = new Request(new Url('http://127.0.0.1/api'), 'GET');
+        $response = new Response();
+        $response->setBody($body);
 
-		$this->loadController($request, $response);
+        $this->loadController($request, $response);
 
         $router     = Environment::getService('reverse_router');
         $routePath  = $router->getUrl('PSX\Controller\Tool\RoutingController');
         $docPath    = $router->getUrl('PSX\Controller\Tool\DocumentationController::doIndex');
         $clientPath = $router->getBasePath() . '/documentation/';
 
-		$body   = (string) $response->getBody();
-		$expect = <<<JSON
+        $body   = (string) $response->getBody();
+        $expect = <<<JSON
 {
-    "message": "Welcome, this is an PSX sample application. It should help to bootstrap a project by providing all needed files and some examples.",
+    "message": "Welcome, this is a PSX sample application. It should help to bootstrap a project by providing all needed files and some examples.",
     "links": [
         {
             "rel": "routing",
@@ -50,15 +50,15 @@ class IndexTest extends ControllerTestCase
 }
 JSON;
 
-		$this->assertJsonStringEqualsJsonString($expect, $body, $body);
-	}
+        $this->assertJsonStringEqualsJsonString($expect, $body, $body);
+    }
 
-	protected function getPaths()
-	{
-		return array(
+    protected function getPaths()
+    {
+        return array(
             [['GET'], '/api', 'Sample\Api\InternetPopulation\Endpoint\Index'],
             [['GET'], '/routing', 'PSX\Controller\Tool\RoutingController'],
-			[['GET'], '/doc', 'PSX\Controller\Tool\DocumentationController::doIndex'],
-		);
-	}
+            [['GET'], '/doc', 'PSX\Controller\Tool\DocumentationController::doIndex'],
+        );
+    }
 }

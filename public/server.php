@@ -5,7 +5,7 @@
  * dynamic web applications. For the current version and informations
  * visit <http://phpsx.org>
  *
- * Copyright (c) 2010-2014 Christoph Kappestein <k42b3.x@gmail.com>
+ * Copyright (c) 2010-2015 Christoph Kappestein <k42b3.x@gmail.com>
  *
  * This file is part of psx. psx is free software: you can
  * redistribute it and/or modify it under the terms of the
@@ -23,8 +23,7 @@
 
 // router file which can be used by the PHP internal web server. All requests to
 // the documentation folder are not handeled by psx
-if(preg_match('/^\/documentation\//', $_SERVER['REQUEST_URI']))
-{
+if (preg_match('/^\/documentation\//', $_SERVER['REQUEST_URI'])) {
 	return false;
 }
 
