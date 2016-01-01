@@ -27,4 +27,9 @@ if (preg_match('/^\/documentation\//', $_SERVER['REQUEST_URI'])) {
 	return false;
 }
 
+// strip if the requests starts with /index.php/
+if (isset($_SERVER['REQUEST_URI']) && substr($_SERVER['REQUEST_URI'], 0, 11) == '/index.php/') {
+    $_SERVER['REQUEST_URI'] = substr($_SERVER['REQUEST_URI'], 10);
+}
+
 require_once(__DIR__ . '/index.php');
