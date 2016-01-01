@@ -33,11 +33,7 @@ class Entity extends SchemaApiAbstract
         return $this->getInternetPopulation();
     }
 
-    protected function doCreate(RecordInterface $record, Version $version)
-    {
-    }
-
-    protected function doUpdate(RecordInterface $record, Version $version)
+    protected function doPut(RecordInterface $record, Version $version)
     {
         $population = $this->getInternetPopulation();
 

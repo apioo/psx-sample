@@ -40,7 +40,7 @@ class Collection extends SchemaApiAbstract
         ];
     }
 
-    protected function doCreate(RecordInterface $record, Version $version)
+    protected function doPost(RecordInterface $record, Version $version)
     {
         $record->setDatetime(new \DateTime());
 
@@ -52,13 +52,5 @@ class Collection extends SchemaApiAbstract
             'success' => true,
             'message' => 'Create successful',
         ];
-    }
-
-    protected function doUpdate(RecordInterface $record, Version $version)
-    {
-    }
-
-    protected function doDelete(RecordInterface $record, Version $version)
-    {
     }
 }
