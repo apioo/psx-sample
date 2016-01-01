@@ -1,8 +1,8 @@
 
 # API
-GET                 /                            Sample\Api\InternetPopulation\Endpoint\Index
-GET|POST|PUT|DELETE /internet                    Sample\Api\InternetPopulation\Endpoint\Collection
-GET|POST|PUT|DELETE /internet/:id                Sample\Api\InternetPopulation\Endpoint\Entity
+GET                 /                            Sample\Api\Index
+GET|POST|PUT|DELETE /population                  Sample\Api\Population\Collection
+GET|POST|PUT|DELETE /population/:id              Sample\Api\Population\Entity
 
 # tool controller
 GET                 /tool/discovery              PSX\Controller\Tool\DiscoveryController

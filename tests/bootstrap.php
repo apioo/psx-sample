@@ -5,6 +5,6 @@ $loader->add('Sample', 'tests');
 
 PSX\Test\Environment::setup(__DIR__ . '/..', function ($fromSchema) {
 
-    return Sample\Api\InternetPopulation\Endpoint\TestSchema::getSchema();
+    return Sample\TestSchema::getSchema();
 
 });

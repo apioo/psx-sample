@@ -1,6 +1,6 @@
 <?php
 
-namespace Sample\Api\InternetPopulation\Endpoint;
+namespace Sample\Api;
 
 use PSX\Controller\ApiAbstract;
 
@@ -8,7 +8,7 @@ class Index extends ApiAbstract
 {
     /**
      * @Inject
-     * @var PSX\Loader\ReverseRouter
+     * @var \PSX\Loader\ReverseRouter
      */
     protected $reverseRouter;
 

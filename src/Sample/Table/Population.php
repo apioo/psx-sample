@@ -1,14 +1,14 @@
 <?php
 
-namespace Sample\Api\InternetPopulation;
+namespace Sample\Table;
 
 use PSX\Sql\TableAbstract;
 
-class Table extends TableAbstract
+class Population extends TableAbstract
 {
     public function getName()
     {
-        return 'internet_population';
+        return 'population';
     }
 
     public function getColumns()

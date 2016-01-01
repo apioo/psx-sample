@@ -1,6 +1,6 @@
 <?php
 
-namespace Sample\Api\InternetPopulation\Endpoint;
+namespace Sample;
 
 use Doctrine\DBAL\Schema\Schema;
 
@@ -10,7 +10,7 @@ class TestSchema
     {
         $schema = new Schema();
 
-        $table = $schema->createTable('internet_population');
+        $table = $schema->createTable('population');
         $table->addColumn('id', 'integer', array('autoincrement' => true));
         $table->addColumn('place', 'integer');
         $table->addColumn('region', 'string');

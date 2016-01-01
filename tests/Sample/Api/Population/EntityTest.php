@@ -1,29 +1,15 @@
 <?php
 
-namespace Sample\Api\InternetPopulation\Endpoint;
+namespace Sample\Api\Population;
 
-use PSX\Http\Request;
-use PSX\Http\Response;
-use PSX\Http\Stream\TempStream;
-use PSX\Test\ControllerDbTestCase;
 use PSX\Test\Environment;
-use PSX\Url;
+use Sample\ApiTestCase;
 
-class EntityTest extends ControllerDbTestCase
+class EntityTest extends ApiTestCase
 {
-    public function getDataSet()
-    {
-        return $this->createFlatXMLDataSet(__DIR__ . '/api_fixture.xml');
-    }
-
     public function testGet()
     {
-        $body     = new TempStream(fopen('php://memory', 'r+'));
-        $request  = new Request(new Url('http://127.0.0.1/internet/1'), 'GET');
-        $response = new Response();
-        $response->setBody($body);
-
-        $this->loadController($request, $response);
+        $response = $this->sendRequest('http://127.0.0.1/population/1', 'GET');
 
         $body   = (string) $response->getBody();
         $expect = <<<JSON
@@ -42,14 +28,18 @@ JSON;
         $this->assertJsonStringEqualsJsonString($expect, $body, $body);
     }
 
+    public function testGetNotFound()
+    {
+        $response = $this->sendRequest('http://127.0.0.1/population/16', 'GET');
+
+        $body = (string) $response->getBody();
+
+        $this->assertEquals(404, $response->getStatusCode(), $body);
+    }
+
     public function testPost()
     {
-        $body     = new TempStream(fopen('php://memory', 'r+'));
-        $request  = new Request(new Url('http://127.0.0.1/internet/1'), 'POST');
-        $response = new Response();
-        $response->setBody($body);
-
-        $this->loadController($request, $response);
+        $response = $this->sendRequest('http://127.0.0.1/population/1', 'POST');
 
         $body = (string) $response->getBody();
 
@@ -58,7 +48,7 @@ JSON;
 
     public function testPut()
     {
-        $payload  = json_encode([
+        $payload = json_encode([
             'id'          => 1,
             'place'       => 11,
             'region'      => 'Foo',
@@ -66,12 +56,8 @@ JSON;
             'users'       => 512,
             'world_users' => 0.6,
         ]);
-        $body     = new TempStream(fopen('php://memory', 'r+'));
-        $request  = new Request(new Url('http://127.0.0.1/internet/1'), 'PUT', ['Content-Type' => 'application/json'], $payload);
-        $response = new Response();
-        $response->setBody($body);
 
-        $this->loadController($request, $response);
+        $response = $this->sendRequest('http://127.0.0.1/population/1', 'PUT', ['Content-Type' => 'application/json'], $payload);
 
         $body   = (string) $response->getBody();
         $expect = <<<JSON
@@ -87,7 +73,7 @@ JSON;
         // check database
         $sql = Environment::getService('connection')->createQueryBuilder()
             ->select('id', 'place', 'region', 'population', 'users', 'world_users')
-            ->from('internet_population')
+            ->from('population')
             ->where('id = :id')
             ->getSQL();
 
@@ -106,12 +92,7 @@ JSON;
 
     public function testDelete()
     {
-        $body     = new TempStream(fopen('php://memory', 'r+'));
-        $request  = new Request(new Url('http://127.0.0.1/internet/1'), 'DELETE');
-        $response = new Response();
-        $response->setBody($body);
-
-        $this->loadController($request, $response);
+        $response = $this->sendRequest('http://127.0.0.1/population/1', 'DELETE');
 
         $body   = (string) $response->getBody();
         $expect = <<<JSON
@@ -127,19 +108,12 @@ JSON;
         // check database
         $sql = Environment::getService('connection')->createQueryBuilder()
             ->select('id', 'place', 'region', 'population', 'users', 'world_users')
-            ->from('internet_population')
+            ->from('population')
             ->where('id = :id')
             ->getSQL();
 
         $result = Environment::getService('connection')->fetchAssoc($sql, ['id' => 1]);
 
         $this->assertEmpty($result);
-    }
-
-    protected function getPaths()
-    {
-        return array(
-            [['GET', 'POST', 'PUT', 'DELETE'], '/internet/:id', 'Sample\Api\InternetPopulation\Endpoint\Entity'],
-        );
     }
 }

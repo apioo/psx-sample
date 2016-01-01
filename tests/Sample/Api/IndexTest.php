@@ -1,25 +1,15 @@
 <?php
 
-namespace Sample\Api\InternetPopulation\Endpoint;
+namespace Sample\Api\Population;
 
-use PSX\Http\Request;
-use PSX\Http\Response;
-use PSX\Http\Stream\TempStream;
 use PSX\Test\ControllerTestCase;
 use PSX\Test\Environment;
-use PSX\Url;
 
 class IndexTest extends ControllerTestCase
 {
     public function testGet()
     {
-        $body     = new TempStream(fopen('php://memory', 'r+'));
-        $request  = new Request(new Url('http://127.0.0.1/api'), 'GET');
-        $response = new Response();
-        $response->setBody($body);
-
-        $this->loadController($request, $response);
-
+        $response   = $this->sendRequest('http://127.0.0.1/api', 'GET');
         $router     = Environment::getService('reverse_router');
         $routePath  = $router->getUrl('PSX\Controller\Tool\RoutingController');
         $docPath    = $router->getUrl('PSX\Controller\Tool\DocumentationController::doIndex');
@@ -56,7 +46,7 @@ JSON;
     protected function getPaths()
     {
         return array(
-            [['GET'], '/api', 'Sample\Api\InternetPopulation\Endpoint\Index'],
+            [['GET'], '/api', 'Sample\Api\Index'],
             [['GET'], '/routing', 'PSX\Controller\Tool\RoutingController'],
             [['GET'], '/doc', 'PSX\Controller\Tool\DocumentationController::doIndex'],
         );

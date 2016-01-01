@@ -1,29 +1,15 @@
 <?php
 
-namespace Sample\Api\InternetPopulation\Endpoint;
+namespace Sample\Api\Population;
 
-use PSX\Http\Request;
-use PSX\Http\Response;
-use PSX\Http\Stream\TempStream;
-use PSX\Test\ControllerDbTestCase;
 use PSX\Test\Environment;
-use PSX\Url;
+use Sample\ApiTestCase;
 
-class CollectionTest extends ControllerDbTestCase
+class CollectionTest extends ApiTestCase
 {
-    public function getDataSet()
-    {
-        return $this->createFlatXMLDataSet(__DIR__ . '/api_fixture.xml');
-    }
-
     public function testGetAll()
     {
-        $body     = new TempStream(fopen('php://memory', 'r+'));
-        $request  = new Request(new Url('http://127.0.0.1/internet'), 'GET');
-        $response = new Response();
-        $response->setBody($body);
-
-        $this->loadController($request, $response);
+        $response = $this->sendRequest('http://127.0.0.1/population', 'GET');
 
         $body   = (string) $response->getBody();
         $expect = <<<JSON
@@ -130,12 +116,7 @@ JSON;
 
     public function testGetLimited()
     {
-        $body     = new TempStream(fopen('php://memory', 'r+'));
-        $request  = new Request(new Url('http://127.0.0.1/internet?startIndex=4&count=4'), 'GET');
-        $response = new Response();
-        $response->setBody($body);
-
-        $this->loadController($request, $response);
+        $response = $this->sendRequest('http://127.0.0.1/population?startIndex=4&count=4', 'GET');
 
         $body   = (string) $response->getBody();
         $expect = <<<JSON
@@ -188,7 +169,7 @@ JSON;
 
     public function testPost()
     {
-        $payload  = json_encode([
+        $payload = json_encode([
             'id'          => 11,
             'place'       => 11,
             'region'      => 'Foo',
@@ -196,18 +177,14 @@ JSON;
             'users'       => 512,
             'world_users' => 0.6,
         ]);
-        $body     = new TempStream(fopen('php://memory', 'r+'));
-        $request  = new Request(new Url('http://127.0.0.1/internet'), 'POST', ['Content-Type' => 'application/json'], $payload);
-        $response = new Response();
-        $response->setBody($body);
 
-        $this->loadController($request, $response);
+        $response = $this->sendRequest('http://127.0.0.1/population', 'POST', ['Content-Type' => 'application/json'], $payload);
 
         $body   = (string) $response->getBody();
         $expect = <<<JSON
 {
     "success": true,
-    "message": "Create successful"
+    "message": "Create population successful"
 }
 JSON;
 
@@ -217,7 +194,7 @@ JSON;
         // check database
         $sql = Environment::getService('connection')->createQueryBuilder()
             ->select('id', 'place', 'region', 'population', 'users', 'world_users')
-            ->from('internet_population')
+            ->from('population')
             ->orderBy('id', 'DESC')
             ->setFirstResult(0)
             ->setMaxResults(2)
@@ -234,34 +211,19 @@ JSON;
 
     public function testPut()
     {
-        $body     = new TempStream(fopen('php://memory', 'r+'));
-        $request  = new Request(new Url('http://127.0.0.1/internet'), 'PUT');
-        $response = new Response();
-        $response->setBody($body);
-
-        $this->loadController($request, $response);
-
-        $this->assertEquals(405, $response->getStatusCode());
-    }
-
-    public function testDelete()
-    {
-        $body     = new TempStream(fopen('php://memory', 'r+'));
-        $request  = new Request(new Url('http://127.0.0.1/internet'), 'DELETE');
-        $response = new Response();
-        $response->setBody($body);
-
-        $this->loadController($request, $response);
+        $response = $this->sendRequest('http://127.0.0.1/population', 'PUT');
 
         $body = (string) $response->getBody();
 
         $this->assertEquals(405, $response->getStatusCode(), $body);
     }
 
-    protected function getPaths()
+    public function testDelete()
     {
-        return array(
-            [['GET', 'POST', 'PUT', 'DELETE'], '/internet', 'Sample\Api\InternetPopulation\Endpoint\Collection'],
-        );
+        $response = $this->sendRequest('http://127.0.0.1/population', 'DELETE');
+
+        $body = (string) $response->getBody();
+
+        $this->assertEquals(405, $response->getStatusCode(), $body);
     }
 }
