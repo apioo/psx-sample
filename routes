@@ -13,3 +13,4 @@ GET                 /tool/wsdl/:version/*path    PSX\Controller\Tool\WsdlGenerat
 GET                 /tool/raml/:version/*path    PSX\Controller\Tool\RamlGeneratorController
 GET                 /tool/swagger                PSX\Controller\Tool\SwaggerGeneratorController::doIndex
 GET                 /tool/swagger/:version/*path PSX\Controller\Tool\SwaggerGeneratorController::doDetail
+ANY                 /tool/soap                   PSX\Controller\Tool\SoapProxyController
