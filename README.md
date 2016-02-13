@@ -19,15 +19,19 @@ Therefor you can use the sample htaccess file in the public folder.
 
 ## Getting started
 
-This sample project uses a [RAML] specification to describe the behaviour of the
-API. The RAML file is located at `src/Sample/Resource/population.raml`.
-You can change the RAML and JSONSchema files to change the behaviour of the API.
-The `routes` file contains the route to controller mapping. The controller files
-located at `src/Sample/Api/Population` contain only the actual logic of the API.
-The business logic is located in a seperate service class at 
-`src/Sample/Service/Population.php`. All validation handling and formatting is 
-done by PSX. There is also a automatic documentation which is available at 
-`public/documentation`. The API contains also testcases for each API endpoint 
-which you can run with `phpunit`.
+In the following a few explanations about the important parts of the API.
 
-[RAML]: http://raml.org/
+ * `src/Sample/Api/Population/Collection.php`  
+   This is the class which represents the /population endpoint
+
+ * `src/Sample/Service/Population.php`  
+   Service class which contains the business logic of the API.
+
+ * `src/Sample/Dependency/Container.php`  
+   DI container which overwrites the connection service to use a sqlite 
+   database.
+
+ * `tests/Sample/Api/Population/CollectionTest.php`
+   Contains the PHPUnit test case for the /population endpoint. If you have 
+   phpunit installed you can run the tests in the root of the project with the 
+   phpunit command.
