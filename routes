@@ -1,16 +1,16 @@
 
 # API
-GET                 /                            Sample\Api\Index
-GET|POST|PUT|DELETE /population                  Sample\Api\Population\Collection
-GET|POST|PUT|DELETE /population/:id              Sample\Api\Population\Entity
+GET /                            Sample\Api\Index
+ANY /population                  Sample\Api\Population\Collection
+ANY /population/:id              Sample\Api\Population\Entity
 
 # tool controller
-GET                 /tool/discovery              PSX\Controller\Tool\DiscoveryController
-GET                 /tool/routing                PSX\Controller\Tool\RoutingController
-GET                 /tool/doc                    PSX\Controller\Tool\DocumentationController::doIndex
-GET                 /tool/doc/:version/*path     PSX\Controller\Tool\DocumentationController::doDetail
-GET                 /tool/wsdl/:version/*path    PSX\Controller\Tool\WsdlGeneratorController
-GET                 /tool/raml/:version/*path    PSX\Controller\Tool\RamlGeneratorController
-GET                 /tool/swagger                PSX\Controller\Tool\SwaggerGeneratorController::doIndex
-GET                 /tool/swagger/:version/*path PSX\Controller\Tool\SwaggerGeneratorController::doDetail
-ANY                 /tool/soap                   PSX\Controller\Tool\SoapProxyController
+GET /tool/discovery              PSX\Controller\Tool\DiscoveryController
+GET /tool/routing                PSX\Controller\Tool\RoutingController
+GET /tool/doc                    PSX\Controller\Tool\DocumentationController::doIndex
+GET /tool/doc/:version/*path     PSX\Controller\Tool\DocumentationController::doDetail
+GET /tool/raml/:version/*path    PSX\Controller\Tool\RamlGeneratorController
+GET /tool/swagger                PSX\Controller\Tool\SwaggerGeneratorController::doIndex
+GET /tool/swagger/:version/*path PSX\Controller\Tool\SwaggerGeneratorController::doDetail
+GET /tool/wsdl/:version/*path    PSX\Controller\Tool\WsdlGeneratorController
+ANY /tool/soap                   PSX\Controller\Tool\SoapProxyController
