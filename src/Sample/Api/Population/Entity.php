@@ -2,14 +2,14 @@
 
 namespace Sample\Api\Population;
 
-use PSX\Api\Documentation\Parser\Raml;
 use PSX\Api\Version;
-use PSX\Controller\SchemaApiAbstract;
+use PSX\Controller\AnnotationApiAbstract;
 use PSX\Data\RecordInterface;
-use PSX\Http\Exception as HttpException;
-use PSX\Loader\Context;
 
-class Entity extends SchemaApiAbstract
+/**
+ * @PathParam(name="id", type="integer")
+ */
+class Entity extends AnnotationApiAbstract
 {
     /**
      * @Inject
@@ -17,11 +17,9 @@ class Entity extends SchemaApiAbstract
      */
     protected $populationService;
 
-    public function getDocumentation()
-    {
-        return Raml::fromFile(__DIR__ . '/../../Resource/population.raml', $this->context->get(Context::KEY_PATH));
-    }
-
+    /**
+     * @Outgoing(code=200, schema="../../Resource/schema/population/entity.json")
+     */
     protected function doGet(Version $version)
     {
         return $this->populationService->get(
@@ -29,6 +27,10 @@ class Entity extends SchemaApiAbstract
         );
     }
 
+    /**
+     * @Incoming(schema="../../Resource/schema/population/entity.json")
+     * @Outgoing(code=200, schema="../../Resource/schema/population/message.json")
+     */
     protected function doPut(RecordInterface $record, Version $version)
     {
         $this->populationService->update(
@@ -46,6 +48,9 @@ class Entity extends SchemaApiAbstract
         ];
     }
 
+    /**
+     * @Outgoing(code=200, schema="../../Resource/schema/population/message.json")
+     */
     protected function doDelete(RecordInterface $record, Version $version)
     {
         $this->populationService->delete(

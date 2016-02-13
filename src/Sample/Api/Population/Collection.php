@@ -2,13 +2,11 @@
 
 namespace Sample\Api\Population;
 
-use PSX\Api\Documentation\Parser\Raml;
 use PSX\Api\Version;
-use PSX\Controller\SchemaApiAbstract;
+use PSX\Controller\AnnotationApiAbstract;
 use PSX\Data\RecordInterface;
-use PSX\Loader\Context;
 
-class Collection extends SchemaApiAbstract
+class Collection extends AnnotationApiAbstract
 {
     /**
      * @Inject
@@ -16,11 +14,11 @@ class Collection extends SchemaApiAbstract
      */
     protected $populationService;
 
-    public function getDocumentation()
-    {
-        return Raml::fromFile(__DIR__ . '/../../Resource/population.raml', $this->context->get(Context::KEY_PATH));
-    }
-
+    /**
+     * @QueryParam(name="startIndex", type="integer")
+     * @QueryParam(name="count", type="integer")
+     * @Outgoing(code=200, schema="../../Resource/schema/population/collection.json")
+     */
     protected function doGet(Version $version)
     {
         return $this->populationService->getAll(
@@ -29,6 +27,10 @@ class Collection extends SchemaApiAbstract
         );
     }
 
+    /**
+     * @Incoming(schema="../../Resource/schema/population/entity.json")
+     * @Outgoing(code=201, schema="../../Resource/schema/population/message.json")
+     */
     protected function doPost(RecordInterface $record, Version $version)
     {
         $this->populationService->create(
