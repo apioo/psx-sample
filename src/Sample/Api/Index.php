@@ -2,13 +2,13 @@
 
 namespace Sample\Api;
 
-use PSX\Controller\ApiAbstract;
+use PSX\Framework\Controller\ApiAbstract;
 
 class Index extends ApiAbstract
 {
     /**
      * @Inject
-     * @var \PSX\Loader\ReverseRouter
+     * @var \PSX\Framework\Loader\ReverseRouter
      */
     protected $reverseRouter;
 

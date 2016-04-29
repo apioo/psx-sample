@@ -2,8 +2,8 @@
 
 namespace Sample\Api\Population;
 
-use PSX\Test\ControllerTestCase;
-use PSX\Test\Environment;
+use PSX\Framework\Test\ControllerTestCase;
+use PSX\Framework\Test\Environment;
 
 class IndexTest extends ControllerTestCase
 {

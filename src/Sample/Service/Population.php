@@ -2,8 +2,8 @@
 
 namespace Sample\Service;
 
-use PSX\Data\ResultSet;
 use PSX\Http\Exception as StatusCode;
+use Sample\Model\Collection;
 use Sample\Table\Population as TablePopulation;
 
 class Population
@@ -17,10 +17,8 @@ class Population
 
     public function getAll($startIndex = 0, $count = 16)
     {
-        return new ResultSet(
+        return new Collection(
             $this->populationTable->getCount(),
-            $startIndex,
-            $count,
             $this->populationTable->getAll($startIndex, $count)
         );
     }
@@ -39,12 +37,12 @@ class Population
     public function create($place, $region, $count, $users, $worldUsers)
     {
         $this->populationTable->create([
-            'place'       => $place,
-            'region'      => $region,
-            'population'  => $count,
-            'users'       => $users,
-            'world_users' => $worldUsers,
-            'datetime'    => new \DateTime(),
+            'place'      => $place,
+            'region'     => $region,
+            'population' => $count,
+            'users'      => $users,
+            'worldUsers' => $worldUsers,
+            'datetime'   => new \DateTime(),
         ]);
     }
 
@@ -53,12 +51,12 @@ class Population
         $population = $this->get($id);
 
         $this->populationTable->update([
-            'id'          => $population['id'],
-            'place'       => $place,
-            'region'      => $region,
-            'population'  => $count,
-            'users'       => $users,
-            'world_users' => $worldUsers,
+            'id'         => $population['id'],
+            'place'      => $place,
+            'region'     => $region,
+            'population' => $count,
+            'users'      => $users,
+            'worldUsers' => $worldUsers,
         ]);
     }
 

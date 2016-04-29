@@ -2,7 +2,7 @@
 
 namespace Sample\Api\Population;
 
-use PSX\Test\Environment;
+use PSX\Framework\Test\Environment;
 use Sample\ApiTestCase;
 
 class EntityTest extends ApiTestCase
@@ -19,7 +19,7 @@ class EntityTest extends ApiTestCase
     "region": "China",
     "population": 1338612968,
     "users": 360000000,
-    "world_users": 20.8,
+    "worldUsers": 20.8,
     "datetime": "2009-11-29T15:21:49Z"
 }
 JSON;
@@ -49,12 +49,12 @@ JSON;
     public function testPut()
     {
         $payload = json_encode([
-            'id'          => 1,
-            'place'       => 11,
-            'region'      => 'Foo',
-            'population'  => 1024,
-            'users'       => 512,
-            'world_users' => 0.6,
+            'id'         => 1,
+            'place'      => 11,
+            'region'     => 'Foo',
+            'population' => 1024,
+            'users'      => 512,
+            'worldUsers' => 0.6,
         ]);
 
         $response = $this->sendRequest('http://127.0.0.1/population/1', 'PUT', ['Content-Type' => 'application/json'], $payload);
@@ -72,7 +72,7 @@ JSON;
 
         // check database
         $sql = Environment::getService('connection')->createQueryBuilder()
-            ->select('id', 'place', 'region', 'population', 'users', 'world_users')
+            ->select('id', 'place', 'region', 'population', 'users', 'worldUsers')
             ->from('population')
             ->where('id = :id')
             ->getSQL();
@@ -84,7 +84,7 @@ JSON;
             'region' => 'Foo',
             'population' => 1024,
             'users' => 512,
-            'world_users' => 0.6
+            'worldUsers' => 0.6
         ];
 
         $this->assertEquals($expect, $result);
@@ -107,7 +107,7 @@ JSON;
 
         // check database
         $sql = Environment::getService('connection')->createQueryBuilder()
-            ->select('id', 'place', 'region', 'population', 'users', 'world_users')
+            ->select('id', 'place', 'region', 'population', 'users', 'worldUsers')
             ->from('population')
             ->where('id = :id')
             ->getSQL();

@@ -2,11 +2,10 @@
 
 namespace Sample\Api\Population;
 
-use PSX\Api\Version;
-use PSX\Controller\AnnotationApiAbstract;
-use PSX\Data\RecordInterface;
+use PSX\Framework\Controller\SchemaApiAbstract;
+use Sample\Model\Message;
 
-class Collection extends AnnotationApiAbstract
+class Collection extends SchemaApiAbstract
 {
     /**
      * @Inject
@@ -17,9 +16,9 @@ class Collection extends AnnotationApiAbstract
     /**
      * @QueryParam(name="startIndex", type="integer")
      * @QueryParam(name="count", type="integer")
-     * @Outgoing(code=200, schema="../../Resource/schema/population/collection.json")
+     * @Outgoing(code=200, schema="Sample\Model\Collection")
      */
-    protected function doGet(Version $version)
+    protected function doGet()
     {
         return $this->populationService->getAll(
             $this->queryParameters->getProperty('startIndex'),
@@ -28,22 +27,20 @@ class Collection extends AnnotationApiAbstract
     }
 
     /**
-     * @Incoming(schema="../../Resource/schema/population/entity.json")
-     * @Outgoing(code=201, schema="../../Resource/schema/population/message.json")
+     * @Incoming(schema="Sample\Model\Population")
+     * @Outgoing(code=201, schema="Sample\Model\Message")
+     * @param \Sample\Model\Population $record
      */
-    protected function doPost(RecordInterface $record, Version $version)
+    protected function doPost($record)
     {
         $this->populationService->create(
-            $record['place'],
-            $record['region'],
-            $record['population'],
-            $record['users'],
-            $record['world_users']
+            $record->getPlace(),
+            $record->getRegion(),
+            $record->getPopulation(),
+            $record->getUsers(),
+            $record->getWorldUsers()
         );
 
-        return [
-            'success' => true,
-            'message' => 'Create population successful',
-        ];
+        return new Message(true, 'Create population successful');
     }
 }

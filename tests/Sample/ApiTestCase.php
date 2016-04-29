@@ -2,7 +2,7 @@
 
 namespace Sample;
 
-use PSX\Test\ControllerDbTestCase;
+use PSX\Framework\Test\ControllerDbTestCase;
 
 class ApiTestCase extends ControllerDbTestCase
 {

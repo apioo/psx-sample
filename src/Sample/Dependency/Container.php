@@ -4,7 +4,7 @@ namespace Sample\Dependency;
 
 use Doctrine\DBAL\Configuration;
 use Doctrine\DBAL\DriverManager;
-use PSX\Dependency\DefaultContainer;
+use PSX\Framework\Dependency\DefaultContainer;
 use Sample\Service;
 
 class Container extends DefaultContainer

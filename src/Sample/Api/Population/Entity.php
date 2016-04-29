@@ -2,14 +2,15 @@
 
 namespace Sample\Api\Population;
 
-use PSX\Api\Version;
-use PSX\Controller\AnnotationApiAbstract;
-use PSX\Data\RecordInterface;
+use PSX\Framework\Controller\SchemaApiAbstract;
+use Sample\Model\Message;
 
 /**
+ * @Title("Population")
+ * @Description("and some more long description")
  * @PathParam(name="id", type="integer")
  */
-class Entity extends AnnotationApiAbstract
+class Entity extends SchemaApiAbstract
 {
     /**
      * @Inject
@@ -18,9 +19,9 @@ class Entity extends AnnotationApiAbstract
     protected $populationService;
 
     /**
-     * @Outgoing(code=200, schema="../../Resource/schema/population/entity.json")
+     * @Outgoing(code=200, schema="Sample\Model\Population")
      */
-    protected function doGet(Version $version)
+    protected function doGet()
     {
         return $this->populationService->get(
             $this->pathParameters['id']
@@ -28,38 +29,33 @@ class Entity extends AnnotationApiAbstract
     }
 
     /**
-     * @Incoming(schema="../../Resource/schema/population/entity.json")
-     * @Outgoing(code=200, schema="../../Resource/schema/population/message.json")
+     * @Incoming(schema="Sample\Model\Population")
+     * @Outgoing(code=200, schema="Sample\Model\Message")
+     * @param \Sample\Model\Population $record
      */
-    protected function doPut(RecordInterface $record, Version $version)
+    protected function doPut($record)
     {
         $this->populationService->update(
             $this->pathParameters['id'],
-            $record['place'],
-            $record['region'],
-            $record['population'],
-            $record['users'],
-            $record['world_users']
+            $record->getPlace(),
+            $record->getRegion(),
+            $record->getPopulation(),
+            $record->getUsers(),
+            $record->getWorldUsers()
         );
 
-        return [
-            'success' => true,
-            'message' => 'Update successful',
-        ];
+        return new Message(true, 'Update successful');
     }
 
     /**
-     * @Outgoing(code=200, schema="../../Resource/schema/population/message.json")
+     * @Outgoing(code=200, schema="Sample\Model\Message")
      */
-    protected function doDelete(RecordInterface $record, Version $version)
+    protected function doDelete($record)
     {
         $this->populationService->delete(
             $this->pathParameters['id']
         );
 
-        return [
-            'success' => true,
-            'message' => 'Delete successful',
-        ];
+        return new Message(true, 'Delete successful');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Sample\Api\Population;
 
-use PSX\Test\Environment;
+use PSX\Framework\Test\Environment;
 use Sample\ApiTestCase;
 
 class CollectionTest extends ApiTestCase
@@ -22,7 +22,7 @@ class CollectionTest extends ApiTestCase
             "region": "Korea South",
             "population": 48508972,
             "users": 37475800,
-            "world_users": 2.2,
+            "worldUsers": 2.2,
             "datetime": "2009-11-29T15:28:06Z"
         },
         {
@@ -31,7 +31,7 @@ class CollectionTest extends ApiTestCase
             "region": "France",
             "population": 62150775,
             "users": 43100134,
-            "world_users": 2.5,
+            "worldUsers": 2.5,
             "datetime": "2009-11-29T15:27:37Z"
         },
         {
@@ -40,7 +40,7 @@ class CollectionTest extends ApiTestCase
             "region": "Russia",
             "population": 140041247,
             "users": 45250000,
-            "world_users": 2.6,
+            "worldUsers": 2.6,
             "datetime": "2009-11-29T15:27:07Z"
         },
         {
@@ -49,7 +49,7 @@ class CollectionTest extends ApiTestCase
             "region": "United Kingdom",
             "population": 61113205,
             "users": 46683900,
-            "world_users": 2.7,
+            "worldUsers": 2.7,
             "datetime": "2009-11-29T15:26:27Z"
         },
         {
@@ -58,7 +58,7 @@ class CollectionTest extends ApiTestCase
             "region": "Germany",
             "population": 82329758,
             "users": 54229325,
-            "world_users": 3.1,
+            "worldUsers": 3.1,
             "datetime": "2009-11-29T15:25:58Z"
         },
         {
@@ -67,7 +67,7 @@ class CollectionTest extends ApiTestCase
             "region": "Brazil",
             "population": 198739269,
             "users": 67510400,
-            "world_users": 3.9,
+            "worldUsers": 3.9,
             "datetime": "2009-11-29T15:25:20Z"
         },
         {
@@ -76,7 +76,7 @@ class CollectionTest extends ApiTestCase
             "region": "India",
             "population": 1156897766,
             "users": 81000000,
-            "world_users": 4.7,
+            "worldUsers": 4.7,
             "datetime": "2009-11-29T15:24:47Z"
         },
         {
@@ -85,7 +85,7 @@ class CollectionTest extends ApiTestCase
             "region": "Japan",
             "population": 127078679,
             "users": 95979000,
-            "world_users": 5.5,
+            "worldUsers": 5.5,
             "datetime": "2009-11-29T15:23:18Z"
         },
         {
@@ -94,7 +94,7 @@ class CollectionTest extends ApiTestCase
             "region": "United States",
             "population": 307212123,
             "users": 227719000,
-            "world_users": 13.1,
+            "worldUsers": 13.1,
             "datetime": "2009-11-29T15:22:40Z"
         },
         {
@@ -103,7 +103,7 @@ class CollectionTest extends ApiTestCase
             "region": "China",
             "population": 1338612968,
             "users": 360000000,
-            "world_users": 20.8,
+            "worldUsers": 20.8,
             "datetime": "2009-11-29T15:21:49Z"
         }
     ]
@@ -129,7 +129,7 @@ JSON;
             "region": "Germany",
             "population": 82329758,
             "users": 54229325,
-            "world_users": 3.1,
+            "worldUsers": 3.1,
             "datetime": "2009-11-29T15:25:58Z"
         },
         {
@@ -138,7 +138,7 @@ JSON;
             "region": "Brazil",
             "population": 198739269,
             "users": 67510400,
-            "world_users": 3.9,
+            "worldUsers": 3.9,
             "datetime": "2009-11-29T15:25:20Z"
         },
         {
@@ -147,7 +147,7 @@ JSON;
             "region": "India",
             "population": 1156897766,
             "users": 81000000,
-            "world_users": 4.7,
+            "worldUsers": 4.7,
             "datetime": "2009-11-29T15:24:47Z"
         },
         {
@@ -156,7 +156,7 @@ JSON;
             "region": "Japan",
             "population": 127078679,
             "users": 95979000,
-            "world_users": 5.5,
+            "worldUsers": 5.5,
             "datetime": "2009-11-29T15:23:18Z"
         }
     ]
@@ -170,12 +170,12 @@ JSON;
     public function testPost()
     {
         $payload = json_encode([
-            'id'          => 11,
-            'place'       => 11,
-            'region'      => 'Foo',
-            'population'  => 1024,
-            'users'       => 512,
-            'world_users' => 0.6,
+            'id'         => 11,
+            'place'      => 11,
+            'region'     => 'Foo',
+            'population' => 1024,
+            'users'      => 512,
+            'worldUsers' => 0.6,
         ]);
 
         $response = $this->sendRequest('http://127.0.0.1/population', 'POST', ['Content-Type' => 'application/json'], $payload);
@@ -193,7 +193,7 @@ JSON;
 
         // check database
         $sql = Environment::getService('connection')->createQueryBuilder()
-            ->select('id', 'place', 'region', 'population', 'users', 'world_users')
+            ->select('id', 'place', 'region', 'population', 'users', 'worldUsers')
             ->from('population')
             ->orderBy('id', 'DESC')
             ->setFirstResult(0)
@@ -202,8 +202,8 @@ JSON;
 
         $result = Environment::getService('connection')->fetchAll($sql);
         $expect = [
-            ['id' => 11, 'place' => 11, 'region' => 'Foo', 'population' => 1024, 'users' => 512, 'world_users' => 0.6],
-            ['id' => 10, 'place' => 10, 'region' => 'Korea South', 'population' => 48508972, 'users' => 37475800, 'world_users' => 2.2],
+            ['id' => 11, 'place' => 11, 'region' => 'Foo', 'population' => 1024, 'users' => 512, 'worldUsers' => 0.6],
+            ['id' => 10, 'place' => 10, 'region' => 'Korea South', 'population' => 48508972, 'users' => 37475800, 'worldUsers' => 2.2],
         ];
 
         $this->assertEquals($expect, $result);
