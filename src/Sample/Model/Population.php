@@ -3,6 +3,7 @@
 namespace Sample\Model;
 
 /**
+ * @Title("population")
  * @Description("Represents an internet population entity")
  */
 class Population

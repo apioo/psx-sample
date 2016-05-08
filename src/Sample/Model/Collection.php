@@ -2,6 +2,9 @@
 
 namespace Sample\Model;
 
+/**
+ * @Title("collection")
+ */
 class Collection
 {
     /**
