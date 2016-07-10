@@ -21,12 +21,12 @@ class Index extends ApiAbstract
             'links'   => array(
                 array(
                     'rel'   => 'routing',
-                    'href'  => $this->reverseRouter->getUrl('PSX\Controller\Tool\RoutingController'),
+                    'href'  => $this->reverseRouter->getUrl('PSX\Framework\Controller\Tool\RoutingController'),
                     'title' => 'Gives an overview of all available routing definitions',
                 ),
                 array(
                     'rel'   => 'documentation',
-                    'href'  => $this->reverseRouter->getUrl('PSX\Controller\Tool\DocumentationController::doIndex'),
+                    'href'  => $this->reverseRouter->getUrl('PSX\Framework\Controller\Tool\DocumentationController::doIndex'),
                     'title' => 'Generates an API documentation from all available endpoints',
                 ),
                 array(

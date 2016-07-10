@@ -11,8 +11,8 @@ class IndexTest extends ControllerTestCase
     {
         $response   = $this->sendRequest('http://127.0.0.1/api', 'GET');
         $router     = Environment::getService('reverse_router');
-        $routePath  = $router->getUrl('PSX\Controller\Tool\RoutingController');
-        $docPath    = $router->getUrl('PSX\Controller\Tool\DocumentationController::doIndex');
+        $routePath  = $router->getUrl('PSX\Framework\Controller\Tool\RoutingController');
+        $docPath    = $router->getUrl('PSX\Framework\Controller\Tool\DocumentationController::doIndex');
         $clientPath = $router->getBasePath() . '/documentation/';
 
         $body   = (string) $response->getBody();
@@ -47,8 +47,8 @@ JSON;
     {
         return array(
             [['GET'], '/api', 'Sample\Api\Index'],
-            [['GET'], '/routing', 'PSX\Controller\Tool\RoutingController'],
-            [['GET'], '/doc', 'PSX\Controller\Tool\DocumentationController::doIndex'],
+            [['GET'], '/routing', 'PSX\Framework\Controller\Tool\RoutingController'],
+            [['GET'], '/doc', 'PSX\Framework\Controller\Tool\DocumentationController::doIndex'],
         );
     }
 }
