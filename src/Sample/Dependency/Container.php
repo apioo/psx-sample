@@ -10,22 +10,6 @@ use Sample\Service;
 class Container extends DefaultContainer
 {
     /**
-     * @return \Doctrine\DBAL\Connection
-     */
-    public function getConnection()
-    {
-        $config = new Configuration();
-        $params = array(
-            'user'     => $this->get('config')->get('psx_sql_user'),
-            'password' => $this->get('config')->get('psx_sql_pw'),
-            'path'     => PSX_PATH_CACHE . '/population.db',
-            'driver'   => 'pdo_sqlite',
-        );
-
-        return DriverManager::getConnection($params, $config);
-    }
-
-    /**
      * @return \Sample\Service\Population
      */
     public function getPopulationService()
