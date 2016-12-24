@@ -13,7 +13,8 @@ class Collection
     protected $totalResults;
 
     /**
-     * @Type("array<Sample\Model\Population>")
+     * @Type("array")
+     * @Items(@Ref("Sample\Model\Population"))
      */
     protected $entry;
 

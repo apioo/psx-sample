@@ -1,6 +1,6 @@
 <?php
 
-namespace Sample;
+namespace Sample\Tests;
 
 use PSX\Framework\Test\ControllerDbTestCase;
 

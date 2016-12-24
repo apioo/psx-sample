@@ -1,6 +1,6 @@
 <?php
 
-namespace Sample\Api\Population;
+namespace Sample\Tests\Api\Population;
 
 use PSX\Framework\Test\ControllerTestCase;
 use PSX\Framework\Test\Environment;
