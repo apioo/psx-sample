@@ -2,10 +2,9 @@
 
 namespace Sample\Dependency;
 
-use Doctrine\DBAL\Configuration;
-use Doctrine\DBAL\DriverManager;
 use PSX\Framework\Dependency\DefaultContainer;
 use Sample\Service;
+use Sample\Table;
 
 class Container extends DefaultContainer
 {
@@ -15,7 +14,7 @@ class Container extends DefaultContainer
     public function getPopulationService()
     {
         return new Service\Population(
-            $this->get('table_manager')->getTable('Sample\Table\Population')
+            $this->get('table_manager')->getTable(Table\Population::class)
         );
     }
 }
