@@ -618,16 +618,16 @@
         },
         {
             "name": "jms/serializer",
-            "version": "1.6.1",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "2cf3b1aac0c93e9f5fed759c1a7441c76801e045"
+                "reference": "b8683d206e7297f54034f67a877f966c14dc12ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/2cf3b1aac0c93e9f5fed759c1a7441c76801e045",
-                "reference": "2cf3b1aac0c93e9f5fed759c1a7441c76801e045",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/b8683d206e7297f54034f67a877f966c14dc12ea",
+                "reference": "b8683d206e7297f54034f67a877f966c14dc12ea",
                 "shasum": ""
             },
             "require": {
@@ -693,7 +693,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-04-12T14:28:35+00:00"
+            "time": "2017-04-17T15:27:46+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1379,16 +1379,16 @@
         },
         {
             "name": "psx/framework",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx-framework.git",
-                "reference": "20b3817fd5ffcb57c3bf862a94af553a74033f87"
+                "reference": "9b2c7e635153345b79c16c5d6bdc4924693c631c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-framework/zipball/20b3817fd5ffcb57c3bf862a94af553a74033f87",
-                "reference": "20b3817fd5ffcb57c3bf862a94af553a74033f87",
+                "url": "https://api.github.com/repos/apioo/psx-framework/zipball/9b2c7e635153345b79c16c5d6bdc4924693c631c",
+                "reference": "9b2c7e635153345b79c16c5d6bdc4924693c631c",
                 "shasum": ""
             },
             "require": {
@@ -1442,7 +1442,7 @@
                 "framework",
                 "rest"
             ],
-            "time": "2017-04-15T09:52:48+00:00"
+            "time": "2017-04-18T09:49:21+00:00"
         },
         {
             "name": "psx/http",
@@ -1685,16 +1685,16 @@
         },
         {
             "name": "psx/psx",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx.git",
-                "reference": "6f9df2183e5f0765905c6930ab696b128401cdbf"
+                "reference": "8a90257b025755b3fbc43305ac9d49a7e9c83a2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx/zipball/6f9df2183e5f0765905c6930ab696b128401cdbf",
-                "reference": "6f9df2183e5f0765905c6930ab696b128401cdbf",
+                "url": "https://api.github.com/repos/apioo/psx/zipball/8a90257b025755b3fbc43305ac9d49a7e9c83a2c",
+                "reference": "8a90257b025755b3fbc43305ac9d49a7e9c83a2c",
                 "shasum": ""
             },
             "require": {
@@ -1727,7 +1727,7 @@
                 "framework",
                 "rest"
             ],
-            "time": "2016-12-24T09:07:03+00:00"
+            "time": "2017-04-15T10:33:36+00:00"
         },
         {
             "name": "psx/record",
