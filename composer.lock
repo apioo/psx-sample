@@ -1164,16 +1164,16 @@
         },
         {
             "name": "psx/api",
-            "version": "v2.0.5",
+            "version": "v2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx-api.git",
-                "reference": "629b7ca95f5f832c79a537acc5a82fb55afab429"
+                "reference": "4c3f91f529f808cab443f95a7857684a1b0d74d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-api/zipball/629b7ca95f5f832c79a537acc5a82fb55afab429",
-                "reference": "629b7ca95f5f832c79a537acc5a82fb55afab429",
+                "url": "https://api.github.com/repos/apioo/psx-api/zipball/4c3f91f529f808cab443f95a7857684a1b0d74d6",
+                "reference": "4c3f91f529f808cab443f95a7857684a1b0d74d6",
                 "shasum": ""
             },
             "require": {
@@ -1219,7 +1219,7 @@
                 "swagger",
                 "wsdl"
             ],
-            "time": "2017-01-28T14:16:39+00:00"
+            "time": "2017-05-04T18:14:14+00:00"
         },
         {
             "name": "psx/cache",
@@ -1379,16 +1379,16 @@
         },
         {
             "name": "psx/framework",
-            "version": "v2.1.2",
+            "version": "v2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx-framework.git",
-                "reference": "598e9bd0c6b55483c02ec605c5dd12327895dd51"
+                "reference": "0945d83610be90c0f3713420f5cc32603dd12a08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-framework/zipball/598e9bd0c6b55483c02ec605c5dd12327895dd51",
-                "reference": "598e9bd0c6b55483c02ec605c5dd12327895dd51",
+                "url": "https://api.github.com/repos/apioo/psx-framework/zipball/0945d83610be90c0f3713420f5cc32603dd12a08",
+                "reference": "0945d83610be90c0f3713420f5cc32603dd12a08",
                 "shasum": ""
             },
             "require": {
@@ -1442,7 +1442,7 @@
                 "framework",
                 "rest"
             ],
-            "time": "2017-05-04T06:31:13+00:00"
+            "time": "2017-05-04T18:38:25+00:00"
         },
         {
             "name": "psx/http",
