@@ -10,7 +10,5 @@ GET /tool/routing                PSX\Framework\Controller\Tool\RoutingController
 GET /tool/doc                    PSX\Framework\Controller\Tool\DocumentationController::doIndex
 GET /tool/doc/:version/*path     PSX\Framework\Controller\Tool\DocumentationController::doDetail
 GET /tool/raml/:version/*path    PSX\Framework\Controller\Generator\RamlController
-GET /tool/swagger                PSX\Framework\Controller\Generator\SwaggerController::doIndex
-GET /tool/swagger/:version/*path PSX\Framework\Controller\Generator\SwaggerController::doDetail
-GET /tool/wsdl/:version/*path    PSX\Framework\Controller\Generator\WsdlController
+GET /tool/swagger/:version/*path PSX\Framework\Controller\Generator\SwaggerController
 ANY /tool/soap                   PSX\Framework\Controller\Proxy\SoapController
