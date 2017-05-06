@@ -13,74 +13,74 @@
   <link rel="stylesheet" href="evid.min.css">
   <script src="evid.min.js"></script>
   <script type="text/javascript">
-  /**
-   * Path to the PSX documentation endpoint
-   */
-  evid.value('url', guessEndpointUrl() + 'tool/doc');
+  evid.config(function(evidProvider) {
+    /**
+     * Url to the PSX documentation endpoint
+     */
+    var url = evidProvider.guessEndpointUrl(false) + 'tool/doc';
 
-  /**
-   * Paths which should be excluded from the documentation
-   */
-  evid.value('exclude', []);
+    evidProvider.setUrl(url);
 
-  /**
-   * Optional menu entries. Each menu entry must have the following format
-   * { title: 'Getting started', icon: 'home', href: 'introduction.htm' }
-   */
-  evid.value('menu', [{
-    title: 'Getting started',
-    icon: 'home',
-    href: 'getting_started.html'
-  }]);
+    /**
+     * Paths which should be excluded from the documentation
+     */
+    var exclude = [];
 
-  /**
-   * Simple helper function to guess the API endpoint url
-   */
-  function guessEndpointUrl() {
-    var url = window.location.href;
-    var removePart = function(url, sign) {
-      var count = (url.match(/\//g) || []).length;
-      var pos = url.lastIndexOf(sign);
-      if (count > 2 && pos !== -1) {
-        return url.substring(0, pos);
-      }
-      return url;
-    }
-    var parts = ['#', '?', '/', '/'];
-    for (var i = 0; i < parts.length; i++) {
-      url = removePart(url, parts[i]);
-    }
-    return url + '/index.php/';
-  }
+    evidProvider.setExclude(exclude);
+
+    /**
+     * Optional menu entries. Each menu entry must have the following format
+     * { title: 'Getting started', icon: 'home', href: 'introduction.htm' }
+     */
+    var menu = [{
+      title: 'Getting started',
+      icon: 'home',
+      href: 'getting_started.html'
+    }];
+
+    evidProvider.setMenu(menu);
+
+    /**
+     * Whether the app should try to load example files. More information at
+     * the readme in the examples/ folder
+     */
+    evidProvider.setExamples(false);
+  });
   </script>
 </head>
 <body layout="column" ng-controller="AppCtrl">
-  <md-toolbar class="md-toolbar-tools md-primary">
-    <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleSidebar()">
-        <md-icon md-font-library="material-icons">menu</md-icon>
-      </md-button>
-      <h2>
-        <span>API Documentation</span>
-      </h2>
-    </div>
-  </md-toolbar>
-  <section layout="row" flex>
-    <md-sidenav class="md-sidenav-left md-whiteframe-z1" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-      <md-content class="evid-menu">
-        <md-list>
-          <md-subheader class="md-primary" ng-if="menus.length > 0">Overview</md-subheader>
-          <md-list-item ng-repeat="menu in menus">
-            <md-button class="evid-menu-item" ng-href="#/page/{{ menu.title|slugify }}"><md-icon md-font-library="material-icons">{{ menu.icon }}</md-icon> {{ menu.title }}</md-button>
-          </md-list-item>
-          <md-subheader class="md-primary">Endpoints</md-subheader>
-          <md-list-item ng-repeat="route in routings | orderBy: 'path'">
-            <md-button class="evid-menu-item" ng-href="#/api{{ route.path }}"><md-icon md-font-library="material-icons">description</md-icon> {{ route.path }}</md-button>
-          </md-list-item>
-        </md-list>
-      </md-content>
-    </md-sidenav>
-    <md-content flex ng-view></md-content>
-  </section>
+<md-toolbar class="md-toolbar-tools md-primary">
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleSidebar()">
+      <md-icon md-font-library="material-icons">menu</md-icon>
+    </md-button>
+    <h2>
+      <span>API Documentation</span>
+    </h2>
+  </div>
+</md-toolbar>
+<section layout="row" flex>
+  <md-sidenav class="md-sidenav-left md-whiteframe-z1" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-content class="evid-menu">
+      <md-list flex>
+        <md-subheader class="md-primary" ng-if="menus.length > 0">Overview</md-subheader>
+        <md-list-item ng-repeat="menu in menus" class="md-2-line" ng-href="#!/page/{{ menu.title|slugify }}">
+          <md-icon md-font-library="material-icons">{{ menu.icon }}</md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>{{ menu.title }}</h3>
+          </div>
+        </md-list-item>
+        <md-subheader class="md-primary">Endpoints</md-subheader>
+        <md-list-item ng-repeat="route in routings | orderBy: 'path'" class="md-2-line" ng-href="#!/api{{ route.path }}">
+          <md-icon md-font-library="material-icons">description</md-icon>
+          <div class="md-list-item-text" layout="column">
+            <h3>{{ route.path }}</h3>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </md-sidenav>
+  <md-content flex ng-view></md-content>
+</section>
 </body>
 </html>
