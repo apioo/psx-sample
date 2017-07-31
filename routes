@@ -11,4 +11,5 @@ GET /tool/doc                    PSX\Framework\Controller\Tool\DocumentationCont
 GET /tool/doc/:version/*path     PSX\Framework\Controller\Tool\DocumentationController::doDetail
 GET /tool/raml/:version/*path    PSX\Framework\Controller\Generator\RamlController
 GET /tool/swagger/:version/*path PSX\Framework\Controller\Generator\SwaggerController
+GET /tool/openapi/:version/*path PSX\Framework\Controller\Generator\OpenAPIController
 ANY /tool/soap                   PSX\Framework\Controller\Proxy\SoapController
