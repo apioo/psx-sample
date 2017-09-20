@@ -9,7 +9,7 @@ class CollectionTest extends ApiTestCase
 {
     public function testGetAll()
     {
-        $response = $this->sendRequest('http://127.0.0.1/population', 'GET');
+        $response = $this->sendRequest('/population', 'GET');
 
         $body   = (string) $response->getBody();
         $expect = <<<JSON
@@ -116,7 +116,7 @@ JSON;
 
     public function testGetLimited()
     {
-        $response = $this->sendRequest('http://127.0.0.1/population?startIndex=4&count=4', 'GET');
+        $response = $this->sendRequest('/population?startIndex=4&count=4', 'GET');
 
         $body   = (string) $response->getBody();
         $expect = <<<JSON
@@ -178,7 +178,7 @@ JSON;
             'worldUsers' => 0.6,
         ]);
 
-        $response = $this->sendRequest('http://127.0.0.1/population', 'POST', ['Content-Type' => 'application/json'], $payload);
+        $response = $this->sendRequest('/population', 'POST', ['Content-Type' => 'application/json'], $payload);
 
         $body   = (string) $response->getBody();
         $expect = <<<JSON
@@ -211,7 +211,7 @@ JSON;
 
     public function testPut()
     {
-        $response = $this->sendRequest('http://127.0.0.1/population', 'PUT');
+        $response = $this->sendRequest('/population', 'PUT');
 
         $body = (string) $response->getBody();
 
@@ -220,7 +220,7 @@ JSON;
 
     public function testDelete()
     {
-        $response = $this->sendRequest('http://127.0.0.1/population', 'DELETE');
+        $response = $this->sendRequest('/population', 'DELETE');
 
         $body = (string) $response->getBody();
 

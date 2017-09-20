@@ -9,7 +9,7 @@ class EntityTest extends ApiTestCase
 {
     public function testGet()
     {
-        $response = $this->sendRequest('http://127.0.0.1/population/1', 'GET');
+        $response = $this->sendRequest('/population/1', 'GET');
 
         $body   = (string) $response->getBody();
         $expect = <<<JSON
@@ -30,7 +30,7 @@ JSON;
 
     public function testGetNotFound()
     {
-        $response = $this->sendRequest('http://127.0.0.1/population/16', 'GET');
+        $response = $this->sendRequest('/population/16', 'GET');
 
         $body = (string) $response->getBody();
 
@@ -39,7 +39,7 @@ JSON;
 
     public function testPost()
     {
-        $response = $this->sendRequest('http://127.0.0.1/population/1', 'POST');
+        $response = $this->sendRequest('/population/1', 'POST');
 
         $body = (string) $response->getBody();
 
@@ -57,7 +57,7 @@ JSON;
             'worldUsers' => 0.6,
         ]);
 
-        $response = $this->sendRequest('http://127.0.0.1/population/1', 'PUT', ['Content-Type' => 'application/json'], $payload);
+        $response = $this->sendRequest('/population/1', 'PUT', ['Content-Type' => 'application/json'], $payload);
 
         $body   = (string) $response->getBody();
         $expect = <<<JSON
@@ -92,7 +92,7 @@ JSON;
 
     public function testDelete()
     {
-        $response = $this->sendRequest('http://127.0.0.1/population/1', 'DELETE');
+        $response = $this->sendRequest('/population/1', 'DELETE');
 
         $body   = (string) $response->getBody();
         $expect = <<<JSON

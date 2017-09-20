@@ -2,6 +2,7 @@
 
 namespace Sample\Tests\Api\Population;
 
+use PSX\Framework\Controller\Tool;
 use PSX\Framework\Test\ControllerTestCase;
 use PSX\Framework\Test\Environment;
 
@@ -9,10 +10,10 @@ class IndexTest extends ControllerTestCase
 {
     public function testGet()
     {
-        $response   = $this->sendRequest('http://127.0.0.1/api', 'GET');
+        $response   = $this->sendRequest('/api', 'GET');
         $router     = Environment::getService('reverse_router');
-        $routePath  = $router->getUrl('PSX\Framework\Controller\Tool\RoutingController');
-        $docPath    = $router->getUrl('PSX\Framework\Controller\Tool\DocumentationController::doIndex');
+        $routePath  = $router->getUrl(Tool\RoutingController::class);
+        $docPath    = $router->getUrl(Tool\DocumentationController::class . '::doIndex');
         $clientPath = $router->getBasePath() . '/documentation/';
 
         $body   = (string) $response->getBody();
@@ -47,8 +48,8 @@ JSON;
     {
         return array(
             [['GET'], '/api', 'Sample\Api\Index'],
-            [['GET'], '/routing', 'PSX\Framework\Controller\Tool\RoutingController'],
-            [['GET'], '/doc', 'PSX\Framework\Controller\Tool\DocumentationController::doIndex'],
+            [['GET'], '/routing', Tool\RoutingController::class],
+            [['GET'], '/doc', Tool\DocumentationController::class . '::doIndex'],
         );
     }
 }
