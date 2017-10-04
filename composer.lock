@@ -618,16 +618,16 @@
         },
         {
             "name": "jms/serializer",
-            "version": "1.8.1",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "ce65798f722c836f16d5d7d2e3ca9d21e0fb4331"
+                "reference": "f4683f41ebf21e60667447bb49939bee35807c3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/ce65798f722c836f16d5d7d2e3ca9d21e0fb4331",
-                "reference": "ce65798f722c836f16d5d7d2e3ca9d21e0fb4331",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/f4683f41ebf21e60667447bb49939bee35807c3c",
+                "reference": "f4683f41ebf21e60667447bb49939bee35807c3c",
                 "shasum": ""
             },
             "require": {
@@ -666,7 +666,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8-dev"
+                    "dev-master": "1.9-dev"
                 }
             },
             "autoload": {
@@ -697,7 +697,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-07-13T11:23:56+00:00"
+            "time": "2017-09-28T15:17:28+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1168,28 +1168,29 @@
         },
         {
             "name": "psx/api",
-            "version": "v2.2.5",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx-api.git",
-                "reference": "40717047a52fa25effbb6cf046ef33ca0bb2d779"
+                "reference": "f19bd9f89cf6bed02267b1ea31793e2f67b1d500"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-api/zipball/40717047a52fa25effbb6cf046ef33ca0bb2d779",
-                "reference": "40717047a52fa25effbb6cf046ef33ca0bb2d779",
+                "url": "https://api.github.com/repos/apioo/psx-api/zipball/f19bd9f89cf6bed02267b1ea31793e2f67b1d500",
+                "reference": "f19bd9f89cf6bed02267b1ea31793e2f67b1d500",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "^1.3",
                 "doctrine/cache": "^1.6",
                 "nikic/php-parser": "^3.0",
-                "php": ">=5.6",
+                "php": ">=7.0",
                 "psx/cache": "^1.0",
                 "psx/json": "^1.0",
                 "psx/model": "^2.0",
                 "psx/schema": "^2.0",
-                "symfony/yaml": "~2.8|~3.0"
+                "symfony/yaml": "~2.8|~3.0",
+                "twig/twig": "^2.4"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.6"
@@ -1223,7 +1224,7 @@
                 "swagger",
                 "wsdl"
             ],
-            "time": "2017-09-16T18:20:29+00:00"
+            "time": "2017-10-04T08:39:45+00:00"
         },
         {
             "name": "psx/cache",
@@ -1383,16 +1384,16 @@
         },
         {
             "name": "psx/framework",
-            "version": "v2.2.2",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx-framework.git",
-                "reference": "27381f607769aa5c50ad2636fdfeca2c56006dd9"
+                "reference": "aac6fc01f44360b0c06a8c9873a112f5efaabb3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-framework/zipball/27381f607769aa5c50ad2636fdfeca2c56006dd9",
-                "reference": "27381f607769aa5c50ad2636fdfeca2c56006dd9",
+                "url": "https://api.github.com/repos/apioo/psx-framework/zipball/aac6fc01f44360b0c06a8c9873a112f5efaabb3f",
+                "reference": "aac6fc01f44360b0c06a8c9873a112f5efaabb3f",
                 "shasum": ""
             },
             "require": {
@@ -1446,7 +1447,7 @@
                 "framework",
                 "rest"
             ],
-            "time": "2017-09-20T17:08:21+00:00"
+            "time": "2017-10-04T13:12:15+00:00"
         },
         {
             "name": "psx/http",
@@ -1783,22 +1784,22 @@
         },
         {
             "name": "psx/schema",
-            "version": "v2.2.1",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx-schema.git",
-                "reference": "b7d2daa6b721cdb1d0536363b4079d2e347efba2"
+                "reference": "d988f7effebcc1b3141a72a94bcfda6350a79db0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-schema/zipball/b7d2daa6b721cdb1d0536363b4079d2e347efba2",
-                "reference": "b7d2daa6b721cdb1d0536363b4079d2e347efba2",
+                "url": "https://api.github.com/repos/apioo/psx-schema/zipball/d988f7effebcc1b3141a72a94bcfda6350a79db0",
+                "reference": "d988f7effebcc1b3141a72a94bcfda6350a79db0",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "^1.3",
                 "nikic/php-parser": "^3.0",
-                "php": ">=5.6",
+                "php": ">=7.0",
                 "psr/cache": "^1.0",
                 "psx/cache": "^1.0",
                 "psx/datetime": "^1.0",
@@ -1839,7 +1840,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2017-09-16T18:08:30+00:00"
+            "time": "2017-10-04T13:07:46+00:00"
         },
         {
             "name": "psx/sql",
@@ -2284,6 +2285,72 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2017-07-23T12:43:26+00:00"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v2.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "eddb97148ad779f27e670e1e3f19fb323aedafeb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/eddb97148ad779f27e670e1e3f19fb323aedafeb",
+                "reference": "eddb97148ad779f27e670e1e3f19fb323aedafeb",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "psr/container": "^1.0",
+                "symfony/debug": "~2.7",
+                "symfony/phpunit-bridge": "~3.3@dev"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                },
+                "psr-4": {
+                    "Twig\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
+                },
+                {
+                    "name": "Twig Team",
+                    "homepage": "http://twig.sensiolabs.org/contributors",
+                    "role": "Contributors"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2017-09-27T18:10:31+00:00"
         },
         {
             "name": "zendframework/zend-diactoros",
@@ -2896,16 +2963,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.21",
+            "version": "5.7.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3b91adfb64264ddec5a2dee9851f354aa66327db"
+                "reference": "10df877596c9906d4110b5b905313829043f2ada"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3b91adfb64264ddec5a2dee9851f354aa66327db",
-                "reference": "3b91adfb64264ddec5a2dee9851f354aa66327db",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/10df877596c9906d4110b5b905313829043f2ada",
+                "reference": "10df877596c9906d4110b5b905313829043f2ada",
                 "shasum": ""
             },
             "require": {
@@ -2974,7 +3041,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-21T08:11:54+00:00"
+            "time": "2017-09-24T07:23:38+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
