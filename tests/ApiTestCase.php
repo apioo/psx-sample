@@ -1,7 +1,8 @@
 <?php
 
-namespace Sample\Tests;
+namespace App\Tests;
 
+use App\Api\Population;
 use PSX\Framework\Test\ControllerDbTestCase;
 
 class ApiTestCase extends ControllerDbTestCase
@@ -14,8 +15,8 @@ class ApiTestCase extends ControllerDbTestCase
     protected function getPaths()
     {
         return array(
-            [['GET', 'POST', 'PUT', 'DELETE'], '/population', 'Sample\Api\Population\Collection'],
-            [['GET', 'POST', 'PUT', 'DELETE'], '/population/:id', 'Sample\Api\Population\Entity'],
+            [['ANY'], '/population', Population\Collection::class],
+            [['ANY'], '/population/:id', Population\Entity::class],
         );
     }
 }

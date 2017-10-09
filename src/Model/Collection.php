@@ -1,9 +1,10 @@
 <?php
 
-namespace Sample\Model;
+namespace App\Model;
 
 /**
  * @Title("collection")
+ * @Description("Collection result")
  */
 class Collection
 {
@@ -14,7 +15,7 @@ class Collection
 
     /**
      * @Type("array")
-     * @Items(@Ref("Sample\Model\Population"))
+     * @Items(@Ref("App\Model\Population"))
      */
     protected $entry;
 

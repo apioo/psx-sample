@@ -1,7 +1,8 @@
 <?php
 
-namespace Sample\Tests\Api\Population;
+namespace App\Tests\Api\Population;
 
+use App\Api\Index;
 use PSX\Framework\Controller\Tool;
 use PSX\Framework\Test\ControllerTestCase;
 use PSX\Framework\Test\Environment;
@@ -47,7 +48,7 @@ JSON;
     protected function getPaths()
     {
         return array(
-            [['GET'], '/api', 'Sample\Api\Index'],
+            [['GET'], '/api', Index::class],
             [['GET'], '/routing', Tool\RoutingController::class],
             [['GET'], '/doc', Tool\DocumentationController::class . '::doIndex'],
         );

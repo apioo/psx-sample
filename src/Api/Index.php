@@ -1,8 +1,9 @@
 <?php
 
-namespace Sample\Api;
+namespace App\Api;
 
 use PSX\Framework\Controller\ApiAbstract;
+use PSX\Framework\Controller\Tool;
 
 class Index extends ApiAbstract
 {
@@ -21,12 +22,12 @@ class Index extends ApiAbstract
             'links'   => array(
                 array(
                     'rel'   => 'routing',
-                    'href'  => $this->reverseRouter->getUrl('PSX\Framework\Controller\Tool\RoutingController'),
+                    'href'  => $this->reverseRouter->getUrl(Tool\RoutingController::class),
                     'title' => 'Gives an overview of all available routing definitions',
                 ),
                 array(
                     'rel'   => 'documentation',
-                    'href'  => $this->reverseRouter->getUrl('PSX\Framework\Controller\Tool\DocumentationController::doIndex'),
+                    'href'  => $this->reverseRouter->getUrl(Tool\DocumentationController::class . '::doIndex'),
                     'title' => 'Generates an API documentation from all available endpoints',
                 ),
                 array(

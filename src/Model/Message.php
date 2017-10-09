@@ -1,9 +1,10 @@
 <?php
 
-namespace Sample\Model;
+namespace App\Model;
 
 /**
  * @Title("message")
+ * @Description("Operation message")
  */
 class Message
 {

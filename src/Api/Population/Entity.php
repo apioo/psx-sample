@@ -1,9 +1,9 @@
 <?php
 
-namespace Sample\Api\Population;
+namespace App\Api\Population;
 
 use PSX\Framework\Controller\SchemaApiAbstract;
-use Sample\Model\Message;
+use App\Model\Message;
 
 /**
  * @Title("Population")
@@ -14,12 +14,13 @@ class Entity extends SchemaApiAbstract
 {
     /**
      * @Inject
-     * @var \Sample\Service\Population
+     * @var \App\Service\Population
      */
     protected $populationService;
 
     /**
-     * @Outgoing(code=200, schema="Sample\Model\Population")
+     * @Outgoing(code=200, schema="App\Model\Population")
+     * @return \PSX\Record\Record
      */
     protected function doGet()
     {
@@ -29,26 +30,24 @@ class Entity extends SchemaApiAbstract
     }
 
     /**
-     * @Incoming(schema="Sample\Model\Population")
-     * @Outgoing(code=200, schema="Sample\Model\Message")
-     * @param \Sample\Model\Population $record
+     * @Incoming(schema="App\Model\Population")
+     * @Outgoing(code=200, schema="App\Model\Message")
+     * @param \App\Model\Population $record
+     * @return \App\Model\Message
      */
     protected function doPut($record)
     {
         $this->populationService->update(
             $this->pathParameters['id'],
-            $record->getPlace(),
-            $record->getRegion(),
-            $record->getPopulation(),
-            $record->getUsers(),
-            $record->getWorldUsers()
+            $record
         );
 
         return new Message(true, 'Update successful');
     }
 
     /**
-     * @Outgoing(code=200, schema="Sample\Model\Message")
+     * @Outgoing(code=200, schema="App\Model\Message")
+     * @return \App\Model\Message
      */
     protected function doDelete($record)
     {

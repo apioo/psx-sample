@@ -20,12 +20,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Sample\\": "src/"
+      "App\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Sample\\Tests\\": "tests/"
+      "App\\Tests\\": "tests/"
     }
   }
 }

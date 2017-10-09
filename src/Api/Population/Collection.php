@@ -1,22 +1,23 @@
 <?php
 
-namespace Sample\Api\Population;
+namespace App\Api\Population;
 
 use PSX\Framework\Controller\SchemaApiAbstract;
-use Sample\Model\Message;
+use App\Model\Message;
 
 class Collection extends SchemaApiAbstract
 {
     /**
      * @Inject
-     * @var \Sample\Service\Population
+     * @var \App\Service\Population
      */
     protected $populationService;
 
     /**
      * @QueryParam(name="startIndex", type="integer")
      * @QueryParam(name="count", type="integer")
-     * @Outgoing(code=200, schema="Sample\Model\Collection")
+     * @Outgoing(code=200, schema="App\Model\Collection")
+     * @return \App\Model\Collection
      */
     protected function doGet()
     {
@@ -27,19 +28,13 @@ class Collection extends SchemaApiAbstract
     }
 
     /**
-     * @Incoming(schema="Sample\Model\Population")
-     * @Outgoing(code=201, schema="Sample\Model\Message")
-     * @param \Sample\Model\Population $record
+     * @Incoming(schema="App\Model\Population")
+     * @Outgoing(code=201, schema="App\Model\Message")
+     * @param \App\Model\Population $record
      */
     protected function doPost($record)
     {
-        $this->populationService->create(
-            $record->getPlace(),
-            $record->getRegion(),
-            $record->getPopulation(),
-            $record->getUsers(),
-            $record->getWorldUsers()
-        );
+        $this->populationService->create($record);
 
         return new Message(true, 'Create population successful');
     }
