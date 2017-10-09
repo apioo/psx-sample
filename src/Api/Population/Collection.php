@@ -31,6 +31,7 @@ class Collection extends SchemaApiAbstract
      * @Incoming(schema="App\Model\Population")
      * @Outgoing(code=201, schema="App\Model\Message")
      * @param \App\Model\Population $record
+     * @return \App\Model\Message
      */
     protected function doPost($record)
     {
