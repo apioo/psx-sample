@@ -1,8 +1,8 @@
 
 # API
-GET /                            Sample\Api\Index
-ANY /population                  Sample\Api\Population\Collection
-ANY /population/:id              Sample\Api\Population\Entity
+GET /                            App\Api\Index
+ANY /population                  App\Api\Population\Collection
+ANY /population/:id              App\Api\Population\Entity
 
 # tool controller
 GET /tool/discovery              PSX\Framework\Controller\Tool\DiscoveryController
