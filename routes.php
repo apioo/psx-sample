@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     # API
     [['GET'], '/', App\Api\Index::class],
     [['ANY'], '/population', App\Api\Population\Collection::class],
@@ -14,6 +15,5 @@ return [
     [['ANY'], '/tool/raml/:version/*path', \PSX\Framework\Controller\Generator\RamlController::class],
     [['ANY'], '/tool/swagger/:version/*path', \PSX\Framework\Controller\Generator\SwaggerController::class],
     [['ANY'], '/tool/openapi/:version/*path', \PSX\Framework\Controller\Generator\OpenAPIController::class],
-    [['ANY'], '/tool/soap', \PSX\Framework\Controller\Proxy\SoapController::class],
-];
 
+];
