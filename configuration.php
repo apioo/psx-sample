@@ -31,7 +31,7 @@ return array(
     ],
 
     // Path to the routing file
-    'psx_routing'             => __DIR__ . '/routes',
+    'psx_routing'             => __DIR__ . '/routes.php',
 
     // Folder locations
     'psx_path_cache'          => __DIR__ . '/cache',
