@@ -4,6 +4,7 @@ namespace App\Api\Population;
 
 use PSX\Framework\Controller\SchemaApiAbstract;
 use App\Model\Message;
+use PSX\Http\Environment\HttpContextInterface;
 
 class Collection extends SchemaApiAbstract
 {
@@ -19,11 +20,11 @@ class Collection extends SchemaApiAbstract
      * @Outgoing(code=200, schema="App\Model\Collection")
      * @return \App\Model\Collection
      */
-    protected function doGet()
+    protected function doGet(HttpContextInterface $context)
     {
         return $this->populationService->getAll(
-            $this->queryParameters->getProperty('startIndex'),
-            $this->queryParameters->getProperty('count')
+            $context->getParameter('startIndex'),
+            $context->getParameter('count')
         );
     }
 
@@ -33,7 +34,7 @@ class Collection extends SchemaApiAbstract
      * @param \App\Model\Population $record
      * @return \App\Model\Message
      */
-    protected function doPost($record)
+    protected function doPost($record, HttpContextInterface $context)
     {
         $this->populationService->create($record);
 

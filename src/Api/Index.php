@@ -2,10 +2,12 @@
 
 namespace App\Api;
 
-use PSX\Framework\Controller\ApiAbstract;
+use PSX\Framework\Controller\ControllerAbstract;
 use PSX\Framework\Controller\Tool;
+use PSX\Http\RequestInterface;
+use PSX\Http\ResponseInterface;
 
-class Index extends ApiAbstract
+class Index extends ControllerAbstract
 {
     /**
      * @Inject
@@ -13,30 +15,30 @@ class Index extends ApiAbstract
      */
     protected $reverseRouter;
 
-    public function onLoad()
+    public function onGet(RequestInterface $request, ResponseInterface $response)
     {
-        parent::onLoad();
-
-        $this->setBody(array(
+        $data = [
             'message' => 'Welcome, this is a PSX sample application. It should help to bootstrap a project by providing all needed files and some examples.',
-            'links'   => array(
-                array(
+            'links'   => [
+                [
                     'rel'   => 'routing',
                     'href'  => $this->reverseRouter->getUrl(Tool\RoutingController::class),
                     'title' => 'Gives an overview of all available routing definitions',
-                ),
-                array(
+                ],
+                [
                     'rel'   => 'documentation',
-                    'href'  => $this->reverseRouter->getUrl(Tool\DocumentationController::class . '::doIndex'),
+                    'href'  => $this->reverseRouter->getUrl(Tool\Documentation\IndexController::class),
                     'title' => 'Generates an API documentation from all available endpoints',
-                ),
-                array(
+                ],
+                [
                     'rel'   => 'alternate',
                     'href'  => $this->reverseRouter->getBasePath() . '/documentation/',
                     'title' => 'HTML client to view the API documentation',
                     'type'  => 'text/html',
-                ),
-            )
-        ));
+                ],
+            ]
+        ];
+
+        $this->responseWriter->setBody($response, $data, $request);
     }
 }

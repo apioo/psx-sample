@@ -4,6 +4,7 @@ namespace App\Api\Population;
 
 use PSX\Framework\Controller\SchemaApiAbstract;
 use App\Model\Message;
+use PSX\Http\Environment\HttpContextInterface;
 
 /**
  * @Title("Population")
@@ -22,10 +23,10 @@ class Entity extends SchemaApiAbstract
      * @Outgoing(code=200, schema="App\Model\Population")
      * @return \PSX\Record\Record
      */
-    protected function doGet()
+    protected function doGet(HttpContextInterface $context)
     {
         return $this->populationService->get(
-            $this->pathParameters['id']
+            $context->getUriFragment('id')
         );
     }
 
@@ -35,10 +36,10 @@ class Entity extends SchemaApiAbstract
      * @param \App\Model\Population $record
      * @return \App\Model\Message
      */
-    protected function doPut($record)
+    protected function doPut($record, HttpContextInterface $context)
     {
         $this->populationService->update(
-            $this->pathParameters['id'],
+            $context->getUriFragment('id'),
             $record
         );
 
@@ -49,10 +50,10 @@ class Entity extends SchemaApiAbstract
      * @Outgoing(code=200, schema="App\Model\Message")
      * @return \App\Model\Message
      */
-    protected function doDelete($record)
+    protected function doDelete($record, HttpContextInterface $context)
     {
         $this->populationService->delete(
-            $this->pathParameters['id']
+            $context->getUriFragment('id')
         );
 
         return new Message(true, 'Delete successful');
