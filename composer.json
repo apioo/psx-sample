@@ -12,7 +12,7 @@
   ],
   "require": {
     "php": ">=7.0",
-    "psx/psx": "^4.0"
+    "psx/framework": "^4.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^5.6",

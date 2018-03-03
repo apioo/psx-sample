@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9120b1041e438d877d39b99b3bf14f20",
+    "content-hash": "b10996abe21d0ba4b6de8a7d220f9cd4",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -477,6 +477,187 @@
             "time": "2014-09-09T13:34:57+00:00"
         },
         {
+            "name": "guzzlehttp/guzzle",
+            "version": "6.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.4",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.0 || ^5.0",
+                "psr/log": "^1.0"
+            },
+            "suggest": {
+                "psr/log": "Required for using the Log middleware"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.2-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2017-06-22T18:50:49+00:00"
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2016-12-20T10:07:11+00:00"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "PSR-7 message implementation that also provides common utility methods",
+            "keywords": [
+                "http",
+                "message",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.23.0",
             "source": {
@@ -556,16 +737,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.1.3",
+            "version": "v3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "579f4ce846734a1cf55d6a531d00ca07a43e3cda"
+                "reference": "bb87e28e7d7b8d9a7fda231d37457c9210faf6ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/579f4ce846734a1cf55d6a531d00ca07a43e3cda",
-                "reference": "579f4ce846734a1cf55d6a531d00ca07a43e3cda",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bb87e28e7d7b8d9a7fda231d37457c9210faf6ce",
+                "reference": "bb87e28e7d7b8d9a7fda231d37457c9210faf6ce",
                 "shasum": ""
             },
             "require": {
@@ -603,7 +784,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-12-26T14:43:21+00:00"
+            "time": "2018-02-28T20:30:58+00:00"
         },
         {
             "name": "psr/cache",
@@ -847,16 +1028,16 @@
         },
         {
             "name": "psx/api",
-            "version": "v2.4.6",
+            "version": "v2.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx-api.git",
-                "reference": "606ea548d2a32276f517926756a0c4268406bfe9"
+                "reference": "8ab96a14f94cb5125ef7b627e90851f3fd187aa5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-api/zipball/606ea548d2a32276f517926756a0c4268406bfe9",
-                "reference": "606ea548d2a32276f517926756a0c4268406bfe9",
+                "url": "https://api.github.com/repos/apioo/psx-api/zipball/8ab96a14f94cb5125ef7b627e90851f3fd187aa5",
+                "reference": "8ab96a14f94cb5125ef7b627e90851f3fd187aa5",
                 "shasum": ""
             },
             "require": {
@@ -903,7 +1084,7 @@
                 "swagger",
                 "wsdl"
             ],
-            "time": "2017-11-30T21:29:25+00:00"
+            "time": "2018-01-06T20:22:50+00:00"
         },
         {
             "name": "psx/cache",
@@ -961,23 +1142,23 @@
         },
         {
             "name": "psx/data",
-            "version": "v2.2.1",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx-data.git",
-                "reference": "587ac3c0b741a244b248c0b0bf7bd441404996cb"
+                "reference": "943ed6c7185316880a33689b5cc2e068a3032734"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-data/zipball/587ac3c0b741a244b248c0b0bf7bd441404996cb",
-                "reference": "587ac3c0b741a244b248c0b0bf7bd441404996cb",
+                "url": "https://api.github.com/repos/apioo/psx-data/zipball/943ed6c7185316880a33689b5cc2e068a3032734",
+                "reference": "943ed6c7185316880a33689b5cc2e068a3032734",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "^1.3",
                 "php": ">=7.0",
                 "psx/datetime": "^1.0",
-                "psx/http": "^1.0",
+                "psx/http": "^2.0",
                 "psx/json": "^1.0",
                 "psx/model": "^2.0",
                 "psx/record": "^1.0",
@@ -1013,7 +1194,7 @@
                 "processor",
                 "xml"
             ],
-            "time": "2017-11-27T21:23:20+00:00"
+            "time": "2018-02-13T22:40:38+00:00"
         },
         {
             "name": "psx/datetime",
@@ -1062,17 +1243,70 @@
             "time": "2016-05-08T08:32:53+00:00"
         },
         {
-            "name": "psx/framework",
-            "version": "v3.0.0",
+            "name": "psx/dependency",
+            "version": "v0.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/apioo/psx-framework.git",
-                "reference": "5f7e4bb85e05412d18232091d313d3e286d6129d"
+                "url": "https://github.com/apioo/psx-dependency.git",
+                "reference": "8c97b74c5f3f4bd1f8405c6c9fe9988b59998709"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-framework/zipball/5f7e4bb85e05412d18232091d313d3e286d6129d",
-                "reference": "5f7e4bb85e05412d18232091d313d3e286d6129d",
+                "url": "https://api.github.com/repos/apioo/psx-dependency/zipball/8c97b74c5f3f4bd1f8405c6c9fe9988b59998709",
+                "reference": "8c97b74c5f3f4bd1f8405c6c9fe9988b59998709",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "^1.3",
+                "php": ">=7.0",
+                "psr/cache": "^1.0",
+                "psr/container": "^1.0"
+            },
+            "provide": {
+                "psr/container-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8",
+                "psx/cache": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PSX\\Dependency\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Christoph Kappestein",
+                    "email": "christoph.kappestein@gmail.com",
+                    "homepage": "http://christoph.kappestein.com/"
+                }
+            ],
+            "description": "Simple and fast DI container",
+            "homepage": "http://phpsx.org",
+            "keywords": [
+                "container",
+                "dependency",
+                "di"
+            ],
+            "time": "2018-02-22T20:08:30+00:00"
+        },
+        {
+            "name": "psx/framework",
+            "version": "v4.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/apioo/psx-framework.git",
+                "reference": "209c69c313df9b4d889d22c8f8be6bfcad6c6149"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/apioo/psx-framework/zipball/209c69c313df9b4d889d22c8f8be6bfcad6c6149",
+                "reference": "209c69c313df9b4d889d22c8f8be6bfcad6c6149",
                 "shasum": ""
             },
             "require": {
@@ -1085,7 +1319,8 @@
                 "psx/api": "^2.0",
                 "psx/cache": "^1.0",
                 "psx/data": "^2.0",
-                "psx/http": "^1.0",
+                "psx/dependency": "^0.1",
+                "psx/http": "^2.0",
                 "psx/json": "^1.0",
                 "psx/oauth": "^2.0",
                 "psx/oauth2": "^2.0",
@@ -1126,31 +1361,31 @@
                 "framework",
                 "rest"
             ],
-            "time": "2017-12-31T13:21:21+00:00"
+            "time": "2018-03-01T19:17:32+00:00"
         },
         {
             "name": "psx/http",
-            "version": "v1.0.2",
+            "version": "v2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx-http.git",
-                "reference": "dbaeee5bd9a1748e7e222b6675cd22620024accc"
+                "reference": "22c3ca8083a1f6ca1e1ef51e7a2d8821a9b363e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-http/zipball/dbaeee5bd9a1748e7e222b6675cd22620024accc",
-                "reference": "dbaeee5bd9a1748e7e222b6675cd22620024accc",
+                "url": "https://api.github.com/repos/apioo/psx-http/zipball/22c3ca8083a1f6ca1e1ef51e7a2d8821a9b363e9",
+                "reference": "22c3ca8083a1f6ca1e1ef51e7a2d8821a9b363e9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5",
+                "guzzlehttp/guzzle": "^6.2",
+                "php": ">=7.0",
                 "psr/http-message": "^1.0",
-                "psx/uri": "^1.0",
-                "zendframework/zend-diactoros": "^1.3"
+                "psr/log": "^1.0",
+                "psx/uri": "^1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8",
-                "psx/json": "^1.0"
+                "phpunit/phpunit": "^4.8"
             },
             "type": "library",
             "autoload": {
@@ -1174,7 +1409,7 @@
             "keywords": [
                 "http"
             ],
-            "time": "2017-06-04T11:50:19+00:00"
+            "time": "2018-02-25T19:50:54+00:00"
         },
         {
             "name": "psx/json",
@@ -1275,22 +1510,22 @@
         },
         {
             "name": "psx/oauth",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx-oauth.git",
-                "reference": "6ca21923ec35078038b842ab67bb36f7e20417a0"
+                "reference": "cf2f62354d8b028ce6cc4a10669c235a3c7abf9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-oauth/zipball/6ca21923ec35078038b842ab67bb36f7e20417a0",
-                "reference": "6ca21923ec35078038b842ab67bb36f7e20417a0",
+                "url": "https://api.github.com/repos/apioo/psx-oauth/zipball/cf2f62354d8b028ce6cc4a10669c235a3c7abf9f",
+                "reference": "cf2f62354d8b028ce6cc4a10669c235a3c7abf9f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6",
-                "psx/data": "^2.0",
-                "psx/http": "^1.0"
+                "php": ">=7.0",
+                "psx/http": "^2.0",
+                "psx/record": "^1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.6"
@@ -1317,26 +1552,25 @@
             "keywords": [
                 "oauth"
             ],
-            "time": "2016-12-17T12:43:40+00:00"
+            "time": "2018-02-14T20:56:56+00:00"
         },
         {
             "name": "psx/oauth2",
-            "version": "v2.0.1",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx-oauth2.git",
-                "reference": "62d810e4dc417ed8f2590046356298e72c0e7546"
+                "reference": "5172bce47da964d3d5bfe9909223f9682beea157"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-oauth2/zipball/62d810e4dc417ed8f2590046356298e72c0e7546",
-                "reference": "62d810e4dc417ed8f2590046356298e72c0e7546",
+                "url": "https://api.github.com/repos/apioo/psx-oauth2/zipball/5172bce47da964d3d5bfe9909223f9682beea157",
+                "reference": "5172bce47da964d3d5bfe9909223f9682beea157",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.0",
-                "psx/data": "^2.0",
-                "psx/http": "^1.0",
+                "psx/http": "^2.0",
                 "psx/json": "^1.0",
                 "psx/record": "^1.0",
                 "psx/uri": "^1.0"
@@ -1366,71 +1600,24 @@
             "keywords": [
                 "oauth"
             ],
-            "time": "2017-11-17T20:11:18+00:00"
-        },
-        {
-            "name": "psx/psx",
-            "version": "v4.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/apioo/psx.git",
-                "reference": "bb5c2d1ba38f887fd03e37348b3e3a635b449579"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx/zipball/bb5c2d1ba38f887fd03e37348b3e3a635b449579",
-                "reference": "bb5c2d1ba38f887fd03e37348b3e3a635b449579",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.0",
-                "psx/framework": "^3.0"
-            },
-            "require-dev": {
-                "guzzlehttp/guzzle": "^6.3",
-                "phpunit/dbunit": "^2.0",
-                "phpunit/phpunit": "^5.6"
-            },
-            "bin": [
-                "bin/psx"
-            ],
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Christoph Kappestein",
-                    "email": "christoph.kappestein@gmail.com",
-                    "homepage": "http://christoph.kappestein.com/"
-                }
-            ],
-            "description": "PHP REST API Framework",
-            "homepage": "http://phpsx.org",
-            "keywords": [
-                "api",
-                "framework",
-                "rest"
-            ],
-            "time": "2017-12-31T14:18:55+00:00"
+            "time": "2018-02-14T20:38:35+00:00"
         },
         {
             "name": "psx/record",
-            "version": "v1.0.1",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx-record.git",
-                "reference": "e37e5e6b8c7a87acde4675837b2a4e5b16cfa9e9"
+                "reference": "bb415b7ef48f8f4649e727ef69c2e754b79f946d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-record/zipball/e37e5e6b8c7a87acde4675837b2a4e5b16cfa9e9",
-                "reference": "e37e5e6b8c7a87acde4675837b2a4e5b16cfa9e9",
+                "url": "https://api.github.com/repos/apioo/psx-record/zipball/bb415b7ef48f8f4649e727ef69c2e754b79f946d",
+                "reference": "bb415b7ef48f8f4649e727ef69c2e754b79f946d",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5",
+                "php": ">=5.6",
                 "psr/cache": "^1.0"
             },
             "require-dev": {
@@ -1461,20 +1648,20 @@
                 "hashmap",
                 "record"
             ],
-            "time": "2016-12-16T21:04:37+00:00"
+            "time": "2018-02-25T21:38:32+00:00"
         },
         {
             "name": "psx/schema",
-            "version": "v2.3.3",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx-schema.git",
-                "reference": "79cc1a82785846e80747d6f220290d090f58bb5d"
+                "reference": "14f9bb5377ed43da54272726718967032b556f53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-schema/zipball/79cc1a82785846e80747d6f220290d090f58bb5d",
-                "reference": "79cc1a82785846e80747d6f220290d090f58bb5d",
+                "url": "https://api.github.com/repos/apioo/psx-schema/zipball/14f9bb5377ed43da54272726718967032b556f53",
+                "reference": "14f9bb5377ed43da54272726718967032b556f53",
                 "shasum": ""
             },
             "require": {
@@ -1484,7 +1671,7 @@
                 "psr/cache": "^1.0",
                 "psx/cache": "^1.0",
                 "psx/datetime": "^1.0",
-                "psx/http": "^1.0",
+                "psx/http": "^2.0",
                 "psx/json": "^1.0",
                 "psx/record": "^1.0",
                 "psx/uri": "^1.0",
@@ -1521,7 +1708,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2017-12-09T10:12:53+00:00"
+            "time": "2018-02-13T22:31:14+00:00"
         },
         {
             "name": "psx/sql",
@@ -1575,16 +1762,16 @@
         },
         {
             "name": "psx/uri",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/apioo/psx-uri.git",
-                "reference": "24daa26c449dbb517424d16ec46b03b3eb261d29"
+                "reference": "5c9a89ea35646f7c9a7e6b6efac1da06b6443721"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apioo/psx-uri/zipball/24daa26c449dbb517424d16ec46b03b3eb261d29",
-                "reference": "24daa26c449dbb517424d16ec46b03b3eb261d29",
+                "url": "https://api.github.com/repos/apioo/psx-uri/zipball/5c9a89ea35646f7c9a7e6b6efac1da06b6443721",
+                "reference": "5c9a89ea35646f7c9a7e6b6efac1da06b6443721",
                 "shasum": ""
             },
             "require": {
@@ -1618,7 +1805,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-07-30T19:21:29+00:00"
+            "time": "2018-02-13T21:09:27+00:00"
         },
         {
             "name": "psx/validate",
@@ -1667,16 +1854,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v3.4.2",
+            "version": "v3.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "9f21adfb92a9315b73ae2ed43138988ee4913d4e"
+                "reference": "067339e9b8ec30d5f19f5950208893ff026b94f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/9f21adfb92a9315b73ae2ed43138988ee4913d4e",
-                "reference": "9f21adfb92a9315b73ae2ed43138988ee4913d4e",
+                "url": "https://api.github.com/repos/symfony/console/zipball/067339e9b8ec30d5f19f5950208893ff026b94f7",
+                "reference": "067339e9b8ec30d5f19f5950208893ff026b94f7",
                 "shasum": ""
             },
             "require": {
@@ -1732,20 +1919,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-12-14T19:40:10+00:00"
+            "time": "2018-02-26T15:46:28+00:00"
         },
         {
             "name": "symfony/debug",
-            "version": "v3.4.2",
+            "version": "v3.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "543deab3ffff94402440b326fc94153bae2dfa7a"
+                "reference": "9b1071f86e79e1999b3d3675d2e0e7684268b9bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/543deab3ffff94402440b326fc94153bae2dfa7a",
-                "reference": "543deab3ffff94402440b326fc94153bae2dfa7a",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/9b1071f86e79e1999b3d3675d2e0e7684268b9bc",
+                "reference": "9b1071f86e79e1999b3d3675d2e0e7684268b9bc",
                 "shasum": ""
             },
             "require": {
@@ -1788,20 +1975,20 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-12-12T08:27:14+00:00"
+            "time": "2018-02-28T21:49:22+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.4.2",
+            "version": "v3.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "b869cbf8a15ca6261689de2c28a7d7f2d0706835"
+                "reference": "58990682ac3fdc1f563b7e705452921372aad11d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/b869cbf8a15ca6261689de2c28a7d7f2d0706835",
-                "reference": "b869cbf8a15ca6261689de2c28a7d7f2d0706835",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/58990682ac3fdc1f563b7e705452921372aad11d",
+                "reference": "58990682ac3fdc1f563b7e705452921372aad11d",
                 "shasum": ""
             },
             "require": {
@@ -1851,20 +2038,20 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-12-14T19:40:10+00:00"
+            "time": "2018-02-14T10:03:57+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.6.0",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296"
+                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296",
-                "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/78be803ce01e55d3491c1397cf1c64beb9c1b63b",
+                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b",
                 "shasum": ""
             },
             "require": {
@@ -1876,7 +2063,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
@@ -1910,20 +2097,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-10-11T12:05:26+00:00"
+            "time": "2018-01-30T19:27:44+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.2",
+            "version": "v3.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "afe0cd38486505c9703707707d91450cfc1bd536"
+                "reference": "6af42631dcf89e9c616242c900d6c52bd53bd1bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/afe0cd38486505c9703707707d91450cfc1bd536",
-                "reference": "afe0cd38486505c9703707707d91450cfc1bd536",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/6af42631dcf89e9c616242c900d6c52bd53bd1bb",
+                "reference": "6af42631dcf89e9c616242c900d6c52bd53bd1bb",
                 "shasum": ""
             },
             "require": {
@@ -1968,20 +2155,20 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-12-11T20:38:23+00:00"
+            "time": "2018-02-16T09:50:28+00:00"
         },
         {
             "name": "twig/twig",
-            "version": "v2.4.4",
+            "version": "v2.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "eddb97148ad779f27e670e1e3f19fb323aedafeb"
+                "reference": "d2117ec118c1ff3d28ccddca8212d82787a4809f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/eddb97148ad779f27e670e1e3f19fb323aedafeb",
-                "reference": "eddb97148ad779f27e670e1e3f19fb323aedafeb",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/d2117ec118c1ff3d28ccddca8212d82787a4809f",
+                "reference": "d2117ec118c1ff3d28ccddca8212d82787a4809f",
                 "shasum": ""
             },
             "require": {
@@ -2034,59 +2221,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-09-27T18:10:31+00:00"
-        },
-        {
-            "name": "zendframework/zend-diactoros",
-            "version": "1.6.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "c8664b92a6d5bc229e48b0923486c097e45a7877"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/c8664b92a6d5bc229e48b0923486c097e45a7877",
-                "reference": "c8664b92a6d5bc229e48b0923486c097e45a7877",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.6 || ^7.0",
-                "psr/http-message": "^1.0"
-            },
-            "provide": {
-                "psr/http-message-implementation": "1.0"
-            },
-            "require-dev": {
-                "ext-dom": "*",
-                "ext-libxml": "*",
-                "phpunit/phpunit": "^5.7.16 || ^6.0.8",
-                "zendframework/zend-coding-standard": "~1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.6-dev",
-                    "dev-develop": "1.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Zend\\Diactoros\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "description": "PSR HTTP Message implementations",
-            "homepage": "https://github.com/zendframework/zend-diactoros",
-            "keywords": [
-                "http",
-                "psr",
-                "psr-7"
-            ],
-            "time": "2017-10-12T15:24:51+00:00"
+            "time": "2018-03-03T16:23:01+00:00"
         }
     ],
     "packages-dev": [
@@ -2245,16 +2380,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "4.2.0",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "66465776cfc249844bde6d117abff1d22e06c2da"
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/66465776cfc249844bde6d117abff1d22e06c2da",
-                "reference": "66465776cfc249844bde6d117abff1d22e06c2da",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/94fd0001232e47129dd3504189fa1c7225010d08",
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08",
                 "shasum": ""
             },
             "require": {
@@ -2292,7 +2427,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-11-27T17:38:31+00:00"
+            "time": "2017-11-30T07:14:17+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -2343,16 +2478,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.7.3",
+            "version": "1.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "e4ed002c67da8eceb0eb8ddb8b3847bb53c5c2bf"
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/e4ed002c67da8eceb0eb8ddb8b3847bb53c5c2bf",
-                "reference": "e4ed002c67da8eceb0eb8ddb8b3847bb53c5c2bf",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/dfd6be44111a7c41c2e884a336cc4f461b3b2401",
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401",
                 "shasum": ""
             },
             "require": {
@@ -2364,7 +2499,7 @@
             },
             "require-dev": {
                 "phpspec/phpspec": "^2.5|^3.2",
-                "phpunit/phpunit": "^4.8.35 || ^5.7"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5"
             },
             "type": "library",
             "extra": {
@@ -2402,7 +2537,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-11-24T13:59:53+00:00"
+            "time": "2018-02-19T10:16:54+00:00"
         },
         {
             "name": "phpunit/dbunit",
@@ -2710,16 +2845,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.26",
+            "version": "5.7.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "7fbc25c13309de0c4c9bb48b7361f1eca34c7fbd"
+                "reference": "b7803aeca3ccb99ad0a506fa80b64cd6a56bbc0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7fbc25c13309de0c4c9bb48b7361f1eca34c7fbd",
-                "reference": "7fbc25c13309de0c4c9bb48b7361f1eca34c7fbd",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b7803aeca3ccb99ad0a506fa80b64cd6a56bbc0c",
+                "reference": "b7803aeca3ccb99ad0a506fa80b64cd6a56bbc0c",
                 "shasum": ""
             },
             "require": {
@@ -2743,7 +2878,7 @@
                 "sebastian/global-state": "^1.1",
                 "sebastian/object-enumerator": "~2.0",
                 "sebastian/resource-operations": "~1.0",
-                "sebastian/version": "~1.0.3|~2.0",
+                "sebastian/version": "^1.0.6|^2.0.1",
                 "symfony/yaml": "~2.1|~3.0|~4.0"
             },
             "conflict": {
@@ -2788,7 +2923,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-12-17T06:14:38+00:00"
+            "time": "2018-02-01T05:50:59+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3364,16 +3499,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f"
+                "reference": "0df1908962e7a3071564e857d86874dad1ef204a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/2db61e59ff05fe5126d152bd0655c9ea113e550f",
-                "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/0df1908962e7a3071564e857d86874dad1ef204a",
+                "reference": "0df1908962e7a3071564e857d86874dad1ef204a",
                 "shasum": ""
             },
             "require": {
@@ -3410,7 +3545,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2016-11-23T20:04:58+00:00"
+            "time": "2018-01-29T19:49:41+00:00"
         }
     ],
     "aliases": [],
