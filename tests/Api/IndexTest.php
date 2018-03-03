@@ -14,7 +14,7 @@ class IndexTest extends ControllerTestCase
         $response   = $this->sendRequest('/api', 'GET');
         $router     = Environment::getService('reverse_router');
         $routePath  = $router->getUrl(Tool\RoutingController::class);
-        $docPath    = $router->getUrl(Tool\DocumentationController::class . '::doIndex');
+        $docPath    = $router->getUrl(Tool\Documentation\IndexController::class);
         $clientPath = $router->getBasePath() . '/documentation/';
 
         $body   = (string) $response->getBody();
@@ -50,7 +50,7 @@ JSON;
         return array(
             [['GET'], '/api', Index::class],
             [['GET'], '/routing', Tool\RoutingController::class],
-            [['GET'], '/doc', Tool\DocumentationController::class . '::doIndex'],
+            [['GET'], '/doc', Tool\Documentation\IndexController::class],
         );
     }
 }
