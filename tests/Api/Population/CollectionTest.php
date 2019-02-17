@@ -15,6 +15,8 @@ class CollectionTest extends ApiTestCase
         $expect = <<<JSON
 {
     "totalResults": 10,
+    "startIndex": 0,
+    "itemsPerPage": 16,
     "entry": [
         {
             "id": 10,
@@ -122,6 +124,8 @@ JSON;
         $expect = <<<JSON
 {
     "totalResults": 10,
+    "startIndex": 4,
+    "itemsPerPage": 4,
     "entry": [
         {
             "id": 6,
@@ -193,7 +197,7 @@ JSON;
 
         // check database
         $sql = Environment::getService('connection')->createQueryBuilder()
-            ->select('id', 'place', 'region', 'population', 'users', 'worldUsers')
+            ->select('id', 'place', 'region', 'population', 'users', 'world_users')
             ->from('population')
             ->orderBy('id', 'DESC')
             ->setFirstResult(0)
@@ -202,8 +206,8 @@ JSON;
 
         $result = Environment::getService('connection')->fetchAll($sql);
         $expect = [
-            ['id' => 11, 'place' => 11, 'region' => 'Foo', 'population' => 1024, 'users' => 512, 'worldUsers' => 0.6],
-            ['id' => 10, 'place' => 10, 'region' => 'Korea South', 'population' => 48508972, 'users' => 37475800, 'worldUsers' => 2.2],
+            ['id' => 11, 'place' => 11, 'region' => 'Foo', 'population' => 1024, 'users' => 512, 'world_users' => 0.6],
+            ['id' => 10, 'place' => 10, 'region' => 'Korea South', 'population' => 48508972, 'users' => 37475800, 'world_users' => 2.2],
         ];
 
         $this->assertEquals($expect, $result);

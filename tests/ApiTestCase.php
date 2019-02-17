@@ -9,7 +9,7 @@ class ApiTestCase extends ControllerDbTestCase
 {
     public function getDataSet()
     {
-        return $this->createFlatXMLDataSet(__DIR__ . '/api_fixture.xml');
+        return include __DIR__ . '/api_fixture.php';
     }
 
     protected function getPaths()

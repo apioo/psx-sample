@@ -72,7 +72,7 @@ JSON;
 
         // check database
         $sql = Environment::getService('connection')->createQueryBuilder()
-            ->select('id', 'place', 'region', 'population', 'users', 'worldUsers')
+            ->select('id', 'place', 'region', 'population', 'users', 'world_users')
             ->from('population')
             ->where('id = :id')
             ->getSQL();
@@ -84,7 +84,7 @@ JSON;
             'region' => 'Foo',
             'population' => 1024,
             'users' => 512,
-            'worldUsers' => 0.6
+            'world_users' => 0.6
         ];
 
         $this->assertEquals($expect, $result);
@@ -107,7 +107,7 @@ JSON;
 
         // check database
         $sql = Environment::getService('connection')->createQueryBuilder()
-            ->select('id', 'place', 'region', 'population', 'users', 'worldUsers')
+            ->select('id', 'place', 'region', 'population', 'users', 'world_users')
             ->from('population')
             ->where('id = :id')
             ->getSQL();
