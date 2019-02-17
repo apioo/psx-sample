@@ -29,9 +29,9 @@ class Population
      */
     public function getAll($startIndex = 0, $count = 16)
     {
-        return new Collection(
-            $this->populationTable->getCount(),
-            $this->populationTable->getAll($startIndex, $count)
+        return $this->populationTable->getCollection(
+            (int) $startIndex,
+            (int) $count
         );
     }
 
@@ -41,7 +41,7 @@ class Population
      */
     public function get($id)
     {
-        $population = $this->populationTable->get($id);
+        $population = $this->populationTable->getEntity($id);
 
         if (empty($population)) {
             throw new StatusCode\NotFoundException('Internet population not found');
@@ -56,12 +56,12 @@ class Population
     public function create(PopulationModel $model)
     {
         $this->populationTable->create([
-            'place'      => $model->getPlace(),
-            'region'     => $model->getRegion(),
-            'population' => $model->getPopulation(),
-            'users'      => $model->getUsers(),
-            'worldUsers' => $model->getWorldUsers(),
-            'datetime'   => new \DateTime(),
+            'place'       => $model->getPlace(),
+            'region'      => $model->getRegion(),
+            'population'  => $model->getPopulation(),
+            'users'       => $model->getUsers(),
+            'world_users' => $model->getWorldUsers(),
+            'insert_date' => new \DateTime(),
         ]);
     }
 
@@ -78,12 +78,12 @@ class Population
         }
 
         $this->populationTable->update([
-            'id'         => $population['id'],
-            'place'      => $model->getPlace(),
-            'region'     => $model->getRegion(),
-            'population' => $model->getPopulation(),
-            'users'      => $model->getUsers(),
-            'worldUsers' => $model->getWorldUsers(),
+            'id'          => $population['id'],
+            'place'       => $model->getPlace(),
+            'region'      => $model->getRegion(),
+            'population'  => $model->getPopulation(),
+            'users'       => $model->getUsers(),
+            'world_users' => $model->getWorldUsers(),
         ]);
     }
 
