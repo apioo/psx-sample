@@ -15,11 +15,11 @@ class Population
         $this->populationTable = $populationTable;
     }
 
-    public function getAll(?int $startIndex = 0, ?int $count = 16): mixed
+    public function getAll(int $startIndex = 0, int $count = 16): mixed
     {
         return $this->populationTable->getCollection(
-            (int) $startIndex,
-            (int) $count
+            $startIndex,
+            $count
         );
     }
 

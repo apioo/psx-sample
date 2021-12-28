@@ -22,8 +22,8 @@ class Collection extends ControllerAbstract
     protected function doGet(HttpContextInterface $context): mixed
     {
         return $this->populationService->getAll(
-            $context->getParameter('startIndex'),
-            $context->getParameter('count')
+            (int) $context->getParameter('startIndex'),
+            (int) $context->getParameter('count')
         );
     }
 

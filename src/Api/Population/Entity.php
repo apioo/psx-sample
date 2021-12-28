@@ -23,7 +23,7 @@ class Entity extends ControllerAbstract
     protected function doGet(HttpContextInterface $context): mixed
     {
         return $this->populationService->get(
-            $context->getUriFragment('id')
+            (int) $context->getUriFragment('id')
         );
     }
 
@@ -32,7 +32,7 @@ class Entity extends ControllerAbstract
     protected function doPut(mixed $record, HttpContextInterface $context): Model\Message
     {
         $this->populationService->update(
-            $context->getUriFragment('id'),
+            (int) $context->getUriFragment('id'),
             $record
         );
 
@@ -43,7 +43,7 @@ class Entity extends ControllerAbstract
     protected function doDelete(HttpContextInterface $context): Model\Message
     {
         $this->populationService->delete(
-            $context->getUriFragment('id')
+            (int) $context->getUriFragment('id')
         );
 
         return new Model\Message(true, 'Delete successful');
