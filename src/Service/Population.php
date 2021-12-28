@@ -2,32 +2,20 @@
 
 namespace App\Service;
 
+use App\Model;
+use App\Table;
 use PSX\Http\Exception as StatusCode;
-use App\Model\Collection;
-use App\Model\Population as PopulationModel;
-use App\Table\Population as TablePopulation;
 
 class Population
 {
-    /**
-     * @var \App\Table\Population
-     */
-    protected $populationTable;
+    protected Table\Population $populationTable;
 
-    /**
-     * @param \App\Table\Population $populationTable
-     */
-    public function __construct(TablePopulation $populationTable)
+    public function __construct(Table\Population $populationTable)
     {
         $this->populationTable = $populationTable;
     }
 
-    /**
-     * @param int $startIndex
-     * @param int $count
-     * @return \App\Model\Collection
-     */
-    public function getAll($startIndex = 0, $count = 16)
+    public function getAll(?int $startIndex = 0, ?int $count = 16): mixed
     {
         return $this->populationTable->getCollection(
             (int) $startIndex,
@@ -35,14 +23,9 @@ class Population
         );
     }
 
-    /**
-     * @param int $id
-     * @return \PSX\Record\Record
-     */
-    public function get($id)
+    public function get(int $id): mixed
     {
         $population = $this->populationTable->getEntity($id);
-
         if (empty($population)) {
             throw new StatusCode\NotFoundException('Internet population not found');
         }
@@ -50,10 +33,7 @@ class Population
         return $population;
     }
 
-    /**
-     * @param \App\Model\Population $model
-     */
-    public function create(PopulationModel $model)
+    public function create(Model\Population $model)
     {
         $this->populationTable->create([
             'place'       => $model->getPlace(),
@@ -65,14 +45,9 @@ class Population
         ]);
     }
 
-    /**
-     * @param int $id
-     * @param \App\Model\Population $model
-     */
-    public function update($id, PopulationModel $model)
+    public function update(int $id, Model\Population $model)
     {
         $population = $this->get($id);
-
         if (empty($population)) {
             throw new StatusCode\NotFoundException('Internet population not found');
         }
@@ -87,13 +62,9 @@ class Population
         ]);
     }
 
-    /**
-     * @param int $id
-     */
-    public function delete($id)
+    public function delete(int $id)
     {
         $population = $this->get($id);
-
         if (empty($population)) {
             throw new StatusCode\NotFoundException('Internet population not found');
         }

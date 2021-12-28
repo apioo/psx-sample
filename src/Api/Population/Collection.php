@@ -2,25 +2,24 @@
 
 namespace App\Api\Population;
 
-use PSX\Framework\Controller\SchemaApiAbstract;
-use App\Model\Message;
+use App\Model;
+use App\Service;
+use PSX\Api\Attribute\Incoming;
+use PSX\Api\Attribute\Outgoing;
+use PSX\Api\Attribute\QueryParam;
+use PSX\Dependency\Attribute\Inject;
+use PSX\Framework\Controller\ControllerAbstract;
 use PSX\Http\Environment\HttpContextInterface;
 
-class Collection extends SchemaApiAbstract
+class Collection extends ControllerAbstract
 {
-    /**
-     * @Inject
-     * @var \App\Service\Population
-     */
-    protected $populationService;
+    #[Inject]
+    private Service\Population $populationService;
 
-    /**
-     * @QueryParam(name="startIndex", type="integer")
-     * @QueryParam(name="count", type="integer")
-     * @Outgoing(code=200, schema="App\Model\Collection")
-     * @return \App\Model\Collection
-     */
-    protected function doGet(HttpContextInterface $context)
+    #[QueryParam(name: "startIndex", type: "integer")]
+    #[QueryParam(name: "count", type: "integer")]
+    #[Outgoing(code: 200, schema: Model\Collection::class)]
+    protected function doGet(HttpContextInterface $context): mixed
     {
         return $this->populationService->getAll(
             $context->getParameter('startIndex'),
@@ -28,16 +27,12 @@ class Collection extends SchemaApiAbstract
         );
     }
 
-    /**
-     * @Incoming(schema="App\Model\Population")
-     * @Outgoing(code=201, schema="App\Model\Message")
-     * @param \App\Model\Population $record
-     * @return \App\Model\Message
-     */
-    protected function doPost($record, HttpContextInterface $context)
+    #[Incoming(schema: Model\Population::class)]
+    #[Outgoing(code: 200, schema: Model\Message::class)]
+    protected function doPost(mixed $record, HttpContextInterface $context): Model\Message
     {
         $this->populationService->create($record);
 
-        return new Message(true, 'Create population successful');
+        return new Model\Message(true, 'Create population successful');
     }
 }

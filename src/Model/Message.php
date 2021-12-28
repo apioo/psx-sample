@@ -2,44 +2,36 @@
 
 namespace App\Model;
 
-/**
- * @Title("message")
- * @Description("Operation message")
- */
+use PSX\Schema\Attribute\Description;
+
+#[Description('Operation message')]
 class Message
 {
-    /**
-     * @Type("boolean")
-     */
-    protected $success;
+    private ?bool $success;
+    private ?string $message;
 
-    /**
-     * @Type("string")
-     */
-    protected $message;
-
-    public function __construct($success = null, $message = null)
+    public function __construct(?bool $success = null, ?string $message = null)
     {
         $this->success = $success;
         $this->message = $message;
     }
 
-    public function getSuccess()
+    public function getSuccess(): ?bool
     {
         return $this->success;
     }
 
-    public function setSuccess($success)
+    public function setSuccess(bool $success): void
     {
         $this->success = $success;
     }
 
-    public function getMessage()
+    public function getMessage(): ?string
     {
         return $this->message;
     }
 
-    public function setMessage($message)
+    public function setMessage(string $message): void
     {
         $this->message = $message;
     }

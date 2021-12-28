@@ -192,7 +192,7 @@ JSON;
 }
 JSON;
 
-        $this->assertEquals(201, $response->getStatusCode(), $body);
+        $this->assertEquals(200, $response->getStatusCode(), $body);
         $this->assertJsonStringEqualsJsonString($expect, $body, $body);
 
         // check database

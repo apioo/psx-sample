@@ -2,127 +2,110 @@
 
 namespace App\Model;
 
-/**
- * @Title("population")
- * @Description("Represents an internet population entity")
- * @Required({"place", "region", "population", "users", "worldUsers"})
- */
+use PSX\Schema\Attribute\Description;
+use PSX\Schema\Attribute\Maximum;
+use PSX\Schema\Attribute\MaxLength;
+use PSX\Schema\Attribute\Minimum;
+use PSX\Schema\Attribute\MinLength;
+use PSX\Schema\Attribute\Pattern;
+use PSX\Schema\Attribute\Required;
+
+#[Description('Represents an internet population entity')]
+#[Required(["place", "region", "population", "users", "worldUsers"])]
 class Population
 {
-    /**
-     * @Type("integer")
-     * @Description("Unique id for each entry")
-     */
-    protected $id;
+    #[Description('Unique id for each entry')]
+    private ?int $id = null;
 
-    /**
-     * @Type("integer")
-     * @Minimum(1)
-     * @Maximum(64)
-     * @Description("Position in the top list")
-     */
-    protected $place;
+    #[Minimum(1)]
+    #[Maximum(64)]
+    #[Description('Position in the top list')]
+    private ?int $place = null;
 
-    /**
-     * @Type("string")
-     * @MinLength(3)
-     * @MaxLength(64)
-     * @Pattern("[A-z]+")
-     * @Description("Name of the region")
-     */
-    protected $region;
+    #[MinLength(3)]
+    #[MaxLength(64)]
+    #[Pattern('[A-z]+')]
+    #[Description('Name of the region')]
+    private ?string $region = null;
 
-    /**
-     * @Type("integer")
-     * @Description("Complete number of population")
-     */
-    protected $population;
+    #[Description('Complete number of population')]
+    private ?int $population = null;
 
-    /**
-     * @Type("integer")
-     * @Description("Number of internet users")
-     */
-    protected $users;
+    #[Description('Number of internet users')]
+    private ?int $users = null;
 
-    /**
-     * @Type("number")
-     * @Description("Percentage users of the world")
-     */
-    protected $worldUsers;
+    #[Description('Percentage users of the world')]
+    private ?float $worldUsers = null;
 
-    /**
-     * @Type("string")
-     * @Format("date-time")
-     * @Description("Date when the entity was created")
-     */
-    protected $datetime;
+    #[Description('Date when the entity was created')]
+    private ?\DateTime $datetime = null;
 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function setId($id)
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }
 
-    public function getPlace()
+    public function getPlace(): ?int
     {
         return $this->place;
     }
 
-    public function setPlace($place)
+    public function setPlace(?int $place): void
     {
         $this->place = $place;
     }
 
-    public function getRegion()
+    public function getRegion(): ?string
     {
         return $this->region;
     }
 
-    public function setRegion($region)
+    public function setRegion(?string $region): void
     {
         $this->region = $region;
     }
 
-    public function getPopulation()
+    public function getPopulation(): ?int
     {
         return $this->population;
     }
 
-    public function setPopulation($population)
+    public function setPopulation(?int $population): void
     {
         $this->population = $population;
     }
 
-    public function getUsers()
+    public function getUsers(): ?int
     {
         return $this->users;
     }
 
-    public function setUsers($users)
+    public function setUsers(?int $users): void
     {
         $this->users = $users;
     }
 
-    public function getWorldUsers()
+    public function getWorldUsers(): ?float
     {
         return $this->worldUsers;
     }
 
-    public function setWorldUsers($worldUsers)
+    public function setWorldUsers(?float $worldUsers): void
     {
         $this->worldUsers = $worldUsers;
     }
 
-    public function getDatetime()
+    public function getDatetime(): ?\DateTime
     {
         return $this->datetime;
     }
 
-    public function setDatetime($datetime)
+    public function setDatetime(?\DateTime $datetime): void
     {
         $this->datetime = $datetime;
     }

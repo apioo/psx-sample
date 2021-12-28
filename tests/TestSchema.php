@@ -6,7 +6,7 @@ use Doctrine\DBAL\Schema\Schema;
 
 class TestSchema
 {
-    public static function getSchema()
+    public static function getSchema(): Schema
     {
         $schema = new Schema();
 

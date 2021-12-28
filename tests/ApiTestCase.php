@@ -12,7 +12,7 @@ class ApiTestCase extends ControllerDbTestCase
         return include __DIR__ . '/api_fixture.php';
     }
 
-    protected function getPaths()
+    protected function getPaths(): array
     {
         return array(
             [['ANY'], '/population', Population\Collection::class],

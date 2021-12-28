@@ -45,7 +45,7 @@ JSON;
         $this->assertJsonStringEqualsJsonString($expect, $body, $body);
     }
 
-    protected function getPaths()
+    protected function getPaths(): array
     {
         return array(
             [['GET'], '/api', Index::class],

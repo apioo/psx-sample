@@ -2,22 +2,20 @@
 
 namespace App\Api;
 
+use PSX\Dependency\Attribute\Inject;
 use PSX\Framework\Controller\ControllerAbstract;
 use PSX\Framework\Controller\Tool;
-use PSX\Http\RequestInterface;
-use PSX\Http\ResponseInterface;
+use PSX\Framework\Loader\ReverseRouter;
+use PSX\Http\Environment\HttpContextInterface;
 
 class Index extends ControllerAbstract
 {
-    /**
-     * @Inject
-     * @var \PSX\Framework\Loader\ReverseRouter
-     */
-    protected $reverseRouter;
+    #[Inject]
+    private ReverseRouter $reverseRouter;
 
-    public function onGet(RequestInterface $request, ResponseInterface $response)
+    public function doGet(HttpContextInterface $context): array
     {
-        $data = [
+        return [
             'message' => 'Welcome, this is a PSX sample application. It should help to bootstrap a project by providing all needed files and some examples.',
             'links'   => [
                 [
@@ -38,7 +36,5 @@ class Index extends ControllerAbstract
                 ],
             ]
         ];
-
-        $this->responseWriter->setBody($response, $data, $request);
     }
 }
