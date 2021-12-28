@@ -8,7 +8,7 @@ framework. You can install it through composer
 
 > composer create-project psx/sample .
 
-More information about PSX at http://phpsx.org
+More information about PSX at https://phpsx.org
 
 ## Configuration
 
